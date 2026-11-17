@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>欧美影视大片-年度片单与观影指南</title>
+<meta name="description" content="欧美影视大片提供2026年度片单、票房数据与观影指南。从好莱坞科幻到英伦文艺，梳理类型差异、分级规则与流媒体上线时间，帮助观众按口味挑选。">
+<meta name="keywords" content="欧美影视大片">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141c2c'/%3E%3Cpath d='M16 22h32v20H16z' fill='none' stroke='%23e8b04b' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23e8b04b'/%3E%3Ccircle cx='22' cy='27' r='2' fill='%23e8b04b'/%3E%3Ccircle cx='42' cy='27' r='2' fill='%23e8b04b'/%3E%3Ccircle cx='22' cy='37' r='2' fill='%23e8b04b'/%3E%3Ccircle cx='42' cy='37' r='2' fill='%23e8b04b'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#141c2c;
+  --ink-2:#2b3548;
+  --muted:#5c6879;
+  --line:#dbe0e8;
+  --paper:#f6f4ef;
+  --card:#ffffff;
+  --gold:#b8842c;
+  --gold-soft:#f0dcb4;
+  --red:#9d2c2c;
+  --blue:#26456e;
+  --radius:10px;
+  --shadow:0 1px 2px rgba(20,28,44,.06),0 8px 24px rgba(20,28,44,.06);
+  --fs-1:2rem;
+  --fs-2:1.4rem;
+  --fs-3:1.1rem;
+  --fs-body:.95rem;
+  --gap:20px;
+  --wrap:1180px;
+  --sticky:96px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink-2);
+  font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  font-size:var(--fs-body);
+  line-height:1.75;
+}
+h1,h2,h3,h4{color:var(--ink);line-height:1.3;margin:0}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+ul,ol{margin:0;padding:0;list-style:none}
+p{margin:0 0 .85em}
+section{scroll-margin-top:var(--sticky)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+
+/* 公告条 */
+.announce{
+  background:var(--ink);
+  color:#f3ead6;
+  font-size:.82rem;
+  border-bottom:1px solid #0a101a;
+}
+.announce .wrap{display:flex;gap:12px;align-items:center;padding:7px 20px;flex-wrap:wrap}
+.announce b{color:var(--gold-soft);font-weight:600;letter-spacing:.06em}
+.announce .dot{color:var(--gold);font-weight:700}
+.announce a{color:#ffd98a;white-space:nowrap}
+
+/* 页头 */
+.header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(246,244,239,.96);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(20,28,44,.05);
+}
+.header .wrap{display:flex;align-items:center;gap:22px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.brand svg{width:34px;height:34px;flex:0 0 34px}
+.brand .name{font-weight:700;color:var(--ink);font-size:1.02rem;letter-spacing:.02em;white-space:nowrap}
+.nav{display:flex;gap:4px;flex:1 1 auto;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{
+  padding:6px 10px;border-radius:6px;color:var(--ink-2);
+  font-size:.86rem;white-space:nowrap;
+}
+.nav a:hover,.nav a:focus-visible{background:var(--gold-soft);color:var(--ink);text-decoration:none}
+.nav a:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.head-tools{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.search{position:relative}
+.search input{
+  width:190px;padding:7px 30px 7px 12px;border:1px solid var(--line);
+  border-radius:20px;background:#fff;font-size:.84rem;color:var(--ink);
+  transition:border-color .2s;
+}
+.search input:focus{outline:none;border-color:var(--gold)}
+.search .ico{position:absolute;right:10px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.8rem;pointer-events:none}
+.search-out{
+  position:absolute;top:112%;left:0;right:0;background:#fff;border:1px solid var(--line);
+  border-radius:8px;box-shadow:var(--shadow);padding:8px;font-size:.82rem;display:none;
+  max-height:280px;overflow:auto;z-index:60;
+}
+.search-out.show{display:block}
+.search-out a{display:block;padding:5px 8px;border-radius:5px;color:var(--ink-2)}
+.search-out a:hover,.search-out a:focus{background:var(--gold-soft);text-decoration:none}
+.search-out .empty{color:var(--muted);padding:6px 8px}
+.menu-btn{
+  display:none;border:1px solid var(--line);background:#fff;border-radius:8px;
+  padding:7px 10px;font-size:.84rem;color:var(--ink);cursor:pointer;
+}
+.menu-btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+/* 首屏 */
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#101827 0%,#1c2c47 58%,#243a5c 100%);
+  color:#e8edf5;
+}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:36px;padding:56px 20px 60px;align-items:center}
+.hero h1{
+  color:#fff;font-size:var(--fs-1);letter-spacing:.02em;margin:0 0 6px;
+}
+.hero .kicker{color:var(--gold-soft);font-size:.86rem;letter-spacing:.22em;margin-bottom:14px}
+.hero p.lede{color:#c6d1e2;font-size:.97rem;max-width:36em;margin-bottom:22px}
+.hero p.lede strong{color:#fff}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.btn{
+  display:inline-block;padding:10px 20px;border-radius:8px;font-size:.9rem;
+  border:1px solid transparent;transition:transform .15s,box-shadow .15s;
+}
+.btn:hover{text-decoration:none;transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:#161207;font-weight:600;box-shadow:0 6px 18px rgba(184,132,44,.32)}
+.btn-ghost{border-color:rgba(232,237,245,.4);color:#e8edf5}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+.hero-stats{display:flex;gap:28px;flex-wrap:wrap;border-top:1px solid rgba(232,237,245,.16);padding-top:18px}
+.hero-stats div{font-size:.78rem;color:#9fb0c9}
+.hero-stats b{display:block;font-size:1.35rem;color:#fff;font-weight:700;letter-spacing:.01em}
+.hero-art{position:relative;min-height:280px}
+.hero-art svg{width:100%;height:auto;filter:drop-shadow(0 12px 28px rgba(0,0,0,.35))}
+
+/* 主区域布局 */
+.layout{
+  display:grid;grid-template-columns:1fr 300px;gap:34px;
+  padding:44px 0 64px;align-items:start;
+}
+.main-col{min-width:0}
+.side-col{min-width:0}
+.block{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 26px 22px;margin-bottom:var(--gap);box-shadow:var(--shadow);
+}
+.block-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:6px;flex-wrap:wrap}
+.block-head h2{font-size:var(--fs-2)}
+.block-head .sub{font-size:.8rem;color:var(--muted)}
+.dek{color:var(--muted);font-size:.88rem;margin-bottom:14px}
+
+/* 概览 */
+.overview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.ov-item{border:1px solid var(--line);border-radius:8px;padding:14px;background:#fbfaf6}
+.ov-item b{display:block;color:var(--ink);font-size:.92rem;margin-bottom:4px}
+.ov-item span{font-size:.8rem;color:var(--muted);line-height:1.6}
+.ov-item .num{color:var(--gold);font-weight:700;font-size:1.2rem}
+
+/* 精选卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{
+  border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff;
+  display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(20,28,44,.1)}
+.card img{width:100%;height:150px;object-fit:cover}
+.card-body{padding:14px 15px 16px;flex:1;display:flex;flex-direction:column}
+.card-body h3{font-size:.98rem;margin-bottom:6px}
+.card-body p{font-size:.83rem;color:var(--muted);margin-bottom:10px;flex:1}
+.tag-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
+.tag{
+  font-size:.72rem;padding:2px 8px;border-radius:20px;background:#f1ede2;
+  color:#7a6224;border:1px solid #e5dcc4;
+}
+.tag.red{background:#f6e6e6;color:#8c2a2a;border-color:#eccfcf}
+.tag.blue{background:#e8eef7;color:#28456c;border-color:#ccd8ea}
+.meta{font-size:.74rem;color:var(--muted);margin-top:8px;display:flex;gap:10px;flex-wrap:wrap}
+
+/* 最新更新 compact list */
+.up-list li{
+  display:grid;grid-template-columns:72px 1fr auto;gap:12px;align-items:baseline;
+  padding:11px 0;border-bottom:1px dashed var(--line);font-size:.88rem;
+}
+.up-list li:last-child{border-bottom:none}
+.up-list time{color:var(--gold);font-size:.78rem;font-weight:600;white-space:nowrap}
+.up-list .t{color:var(--ink)}
+.up-list .from{font-size:.76rem;color:var(--muted);white-space:nowrap}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px}
+.cat{
+  display:block;border:1px solid var(--line);border-radius:8px;padding:12px 10px;
+  text-align:center;font-size:.84rem;background:#fbfaf6;color:var(--ink);
+  transition:background .15s,border-color .15s;
+}
+.cat:hover{background:var(--gold-soft);border-color:var(--gold);text-decoration:none}
+.cat small{display:block;color:var(--muted);font-size:.7rem;margin-top:2px}
+
+/* 深度解析 分栏正文 */
+.deep{border-left:4px solid var(--gold)}
+.deep h2{font-size:var(--fs-2);margin-bottom:4px}
+.deep h3{font-size:var(--fs-3);margin:22px 0 8px;color:var(--ink);padding-left:10px;border-left:3px solid var(--gold)}
+.deep .col2{column-count:2;column-gap:32px}
+.deep .col2 h3{break-after:avoid}
+.deep .col2 p{break-inside:avoid-column}
+.callout{
+  background:#fbf7ec;border:1px solid #e8dcc0;border-radius:8px;
+  padding:14px 16px;margin:16px 0;font-size:.86rem;color:#5d4c22;
+}
+.callout b{color:var(--ink)}
+.checklist{background:#f2f5fa;border-left:3px solid var(--blue);border-radius:0 8px 8px 0;padding:12px 16px;margin:14px 0;font-size:.84rem}
+.checklist li{margin-bottom:5px;padding-left:16px;position:relative}
+.checklist li::before{content:"▸";position:absolute;left:0;color:var(--blue)}
+.fact-tbl{width:100%;border-collapse:collapse;font-size:.82rem;margin:12px 0}
+.fact-tbl th,.fact-tbl td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+.fact-tbl th{background:#f2efe6;color:var(--ink);font-weight:600}
+
+/* 体验指南 编号步骤 */
+.steps{counter-reset:step;display:grid;gap:12px;margin-top:12px}
+.step{
+  counter-increment:step;position:relative;padding:12px 16px 12px 52px;
+  background:#fbfaf6;border:1px solid var(--line);border-radius:8px;font-size:.87rem;
+}
+.step::before{
+  content:counter(step);position:absolute;left:14px;top:12px;
+  width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;
+  font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;
+}
+.step b{display:block;color:var(--ink);margin-bottom:2px}
+
+/* FAQ */
+.faq details{border:1px solid var(--line);border-radius:8px;margin-bottom:9px;background:#fbfaf6;overflow:hidden}
+.faq summary{
+  cursor:pointer;padding:12px 16px;font-size:.9rem;color:var(--ink);font-weight:600;
+  list-style:none;position:relative;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:16px;top:10px;color:var(--gold);font-size:1.1rem}
+.faq details[open] summary::after{content:"−"}
+.faq summary:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+.faq .ans{padding:0 16px 14px;font-size:.85rem;color:var(--muted)}
+
+/* 评论 */
+.comments{display:grid;gap:14px;margin-top:12px}
+.cmt{border:1px solid var(--line);border-radius:8px;padding:12px 15px;background:#fff}
+.cmt .who{display:flex;gap:8px;align-items:center;font-size:.78rem;color:var(--muted);margin-bottom:5px}
+.cmt .who b{color:var(--ink);font-size:.82rem}
+.cmt .who .av{width:22px;height:22px;border-radius:50%;background:var(--gold-soft);color:#7a6224;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700}
+.cmt p{margin:0;font-size:.85rem;color:var(--ink-2)}
+.cmt .ref{color:var(--gold);font-size:.8rem}
+
+/* 相关资讯 */
+.news-list li{padding:10px 0;border-bottom:1px dashed var(--line);font-size:.87rem}
+.news-list li:last-child{border-bottom:none}
+.news-list .k{color:var(--ink);font-weight:600}
+.news-list .d{color:var(--muted);font-size:.76rem;margin-left:8px}
+
+/* 相关推荐 标签索引 */
+.rec-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.rec-tags a{
+  display:inline-block;padding:6px 13px;border-radius:20px;font-size:.82rem;
+  border:1px solid var(--line);background:#fbfaf6;color:var(--ink-2);
+}
+.rec-tags a:hover{background:var(--gold-soft);border-color:var(--gold);color:var(--ink);text-decoration:none}
+
+/* 榜单 时间线 */
+.rank li{display:grid;grid-template-columns:34px 1fr auto;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line);align-items:baseline}
+.rank li:last-child{border-bottom:none}
+.rank .no{font-weight:700;color:var(--gold);font-size:1rem;text-align:center}
+.rank .tt{font-size:.9rem;color:var(--ink)}
+.rank .sc{font-size:.78rem;color:var(--muted);white-space:nowrap}
+.rank .sc b{color:var(--red)}
+.timeline{position:relative;padding-left:22px;margin-top:14px}
+.timeline::before{content:"";position:absolute;left:6px;top:4px;bottom:4px;width:2px;background:var(--line)}
+.tl-item{position:relative;padding-bottom:16px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-21px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px var(--gold-soft)}
+.tl-item time{font-size:.76rem;color:var(--gold);font-weight:600}
+.tl-item b{display:block;font-size:.88rem;color:var(--ink);margin:1px 0 2px}
+.tl-item span{font-size:.8rem;color:var(--muted)}
+
+/* 侧栏 */
+.side-block{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;margin-bottom:var(--gap);box-shadow:var(--shadow);
+}
+.side-block h2{font-size:1rem;margin-bottom:10px}
+.side-nav{position:sticky;top:calc(var(--sticky) + 8px)}
+.side-nav a{
+  display:block;padding:7px 10px;border-radius:6px;font-size:.84rem;color:var(--ink-2);
+  border-left:3px solid transparent;
+}
+.side-nav a:hover{background:#f6f2e6;text-decoration:none}
+.side-nav a.active{border-left-color:var(--gold);background:#f6f2e6;color:var(--ink);font-weight:600}
+.side-nav a:focus-visible{outline:2px solid var(--blue)}
+.mini-list li{font-size:.82rem;padding:8px 0;border-bottom:1px dashed var(--line)}
+.mini-list li:last-child{border-bottom:none}
+.mini-list b{display:block;color:var(--ink);font-size:.85rem}
+.mini-list span{color:var(--muted);font-size:.76rem}
+.quote-card{background:#141c2c;color:#dbe3ef;border-radius:9px;padding:18px}
+.quote-card p{font-size:.86rem;margin-bottom:10px;color:#e6ecf5}
+.quote-card cite{font-style:normal;font-size:.76rem;color:#a6b6cd;display:block}
+
+/* 页脚 */
+.footer{background:#101827;color:#b3c0d3;padding:44px 0 26px;font-size:.84rem}
+.footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;margin-bottom:30px}
+.footer h3{color:#fff;font-size:.92rem;margin-bottom:10px;letter-spacing:.04em}
+.footer a{color:#c6d1e2;font-size:.82rem;display:block;padding:3px 0}
+.footer a:hover{color:var(--gold-soft)}
+.footer .brandline{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.footer .brandline svg{width:30px;height:30px}
+.footer .pos{color:#8ea0ba;font-size:.82rem;line-height:1.7}
+.footer .bottom{border-top:1px solid #27334a;padding-top:16px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:#78889f;font-size:.76rem}
+.footer .note{color:#78889f;font-size:.76rem;margin-top:10px;line-height:1.7}
+
+/* 回到顶部 */
+.to-top{
+  position:fixed;right:18px;bottom:22px;z-index:70;
+  width:42px;height:42px;border-radius:50%;border:1px solid var(--line);
+  background:#fff;color:var(--ink);font-size:.9rem;cursor:pointer;
+  box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(8px);
+  transition:opacity .2s,transform .2s,visibility .2s;
+}
+.to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+.to-top:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+/* 响应式 */
+@media (max-width:1024px){
+  .layout{grid-template-columns:1fr}
+  .side-col{order:2}
+  .side-nav{position:static}
+  .hero .wrap{grid-template-columns:1fr;gap:20px}
+  .hero-art{max-width:420px;margin:0 auto}
+  .cat-grid{grid-template-columns:repeat(3,1fr)}
+  .footer .cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  :root{--fs-1:1.55rem;--fs-2:1.2rem}
+  .header .wrap{height:auto;min-height:58px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px;gap:10px}
+  .menu-btn{display:inline-block}
+  .nav{
+    order:4;flex-basis:100%;display:none;flex-direction:column;gap:2px;
+    border-top:1px solid var(--line);padding-top:8px;margin-top:4px;
+  }
+  .nav.open{display:flex}
+  .nav a{padding:9px 10px;font-size:.9rem}
+  .head-tools{margin-left:auto}
+  .search input{width:150px}
+  .card-grid{grid-template-columns:1fr}
+  .overview-grid{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .deep .col2{column-count:1}
+  .block{padding:20px 16px 18px}
+  .up-list li{grid-template-columns:64px 1fr;gap:8px}
+  .up-list .from{display:none}
+  .hero .wrap{padding:36px 20px 40px}
+  .footer .cols{grid-template-columns:1fr 1fr;gap:20px}
+  .rank li{grid-template-columns:28px 1fr}
+  .rank .sc{grid-column:2;justify-self:start}
+  .to-top{right:12px;bottom:14px;width:38px;height:38px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important;animation:none !important}
+  .btn:hover,.card:hover{transform:none}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"欧美影视大片",
+  "description":"2026年度欧美电影片单、票房数据、分级规则与流媒体上线信息整理。",
+  "inLanguage":"zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"IMAX和杜比影院看科幻片，画质差别大吗？","acceptedAnswer":{"@type":"Answer","text":"以《苍穹信使》为例，IMAX版本画幅比是1.9:1，杜比影院维持2.39:1，太空舱场景纵向可见内容多出约15%；杜比影院的优势在激光亮度和全景声，暗场细节更稳。"}},
+    {"@type":"Question","name":"英国电影为什么常标注12A而不是12？","acceptedAnswer":{"@type":"Answer","text":"12A为影院版本，12岁以下儿童须由成人陪同；12则适用于家庭影碟与流媒体。同一部片在影院与流媒体平台可能分级标签不同。"}},
+    {"@type":"Question","name":"奥斯卡最佳影片的资格规则2026年有变化吗？","acceptedAnswer":{"@type":"Answer","text":"美国电影艺术与科学学院在2026年8月公布的新规要求，最佳影片候选须在影院完成至少连续7天的商业放映，比此前的门槛多出2天。"}},
+    {"@type":"Question","name":"流媒体上线和影院窗口期一般隔多久？","acceptedAnswer":{"@type":"Answer","text":"2026年秋季档主流发行方给出的窗口期在45至75天之间。A24的动作片多在50天左右上线北美平台，环球的大制作通常接近70天。"}}
+  ]
+}
+</script>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="announce" id="announce">
+  <div class="wrap">
+    <b>欧美影视大片</b>
+    <span class="dot">●</span>
+    <span>11月6日更新：2026颁奖季前哨站 Gotham 提名公布，《北岸来信》获四项提名</span>
+    <a href="/#news">查看资讯 →</a>
+  </div>
+</div>
+
+<header class="header" id="top">
+  <div class="wrap">
+    <a class="brand" href="/#top" aria-label="返回顶部">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#141c2c"/>
+        <path d="M16 22h32v20H16z" fill="none" stroke="#e8b04b" stroke-width="3"/>
+        <circle cx="32" cy="32" r="5" fill="#e8b04b"/>
+        <circle cx="22" cy="27" r="2" fill="#e8b04b"/>
+        <circle cx="42" cy="27" r="2" fill="#e8b04b"/>
+        <circle cx="22" cy="37" r="2" fill="#e8b04b"/>
+        <circle cx="42" cy="37" r="2" fill="#e8b04b"/>
+      </svg>
+      <span class="name">欧美影视大片</span>
+    </a>
+    <nav class="nav" id="mainNav" aria-label="主题导航">
+      <a href="/#overview">领域概览</a>
+      <a href="/#picks">精选推荐</a>
+      <a href="/#updates">最新更新</a>
+      <a href="/#cats">分类入口</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#guide">观影指南</a>
+      <a href="/#faq">常见问题</a>
+    </nav>
+    <div class="head-tools">
+      <div class="search">
+        <input type="search" id="searchInput" placeholder="搜片名、导演、档期…" aria-label="站内搜索">
+        <span class="ico" aria-hidden="true">⌕</span>
+        <div class="search-out" id="searchOut" role="listbox" aria-label="搜索结果"></div>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav">菜单</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="wrap">
+      <div>
+        <div class="kicker">2026 FALL–WINTER · 片单与数据</div>
+        <h1 id="heroTitle">欧美影视大片</h1>
+        <p class="lede">把北美票房、英伦院线、欧洲三大节与流媒体上线时间放在一张表里看。11月档在映 <strong>37 部</strong>，其中 12 部为 IMAX 或杜比制式，提前 30 天可查分级与片长。</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="/#picks">看本周片单</a>
+          <a class="btn btn-ghost" href="/#deep">读票房结构分析</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>37</b>在映影片</div>
+          <div><b>8.4 亿</b>美元 · 11月北美累计</div>
+          <div><b>45–75</b>天窗口期</div>
+          <div><b>12</b>部制式大片</div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 300" role="img" aria-label="胶片与放映光束的抽象构图">
+          <defs>
+            <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#e8b04b" stop-opacity="0"/>
+              <stop offset="1" stop-color="#e8b04b" stop-opacity=".55"/>
+            </linearGradient>
+            <linearGradient id="reel" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#38507a"/>
+              <stop offset="1" stop-color="#1b2740"/>
+            </linearGradient>
+          </defs>
+          <polygon points="300,150 420,40 420,260" fill="url(#beam)"/>
+          <rect x="24" y="60" width="120" height="180" rx="10" fill="none" stroke="#4c6a9a" stroke-width="2"/>
+          <g fill="#2b3f61">
+            <rect x="36" y="74" width="22" height="16" rx="3"/><rect x="66" y="74" width="22" height="16" rx="3"/><rect x="96" y="74" width="22" height="16" rx="3"/>
+            <rect x="36" y="98" width="22" height="16" rx="3" fill="#121a29"/><rect x="66" y="98" width="22" height="16" rx="3" fill="#121a29"/><rect x="96" y="98" width="22" height="16" rx="3" fill="#121a29"/>
+            <rect x="36" y="122" width="22" height="16" rx="3"/><rect x="66" y="122" width="22" height="16" rx="3"/><rect x="96" y="122" width="22" height="16" rx="3"/>
+            <rect x="36" y="146" width="22" height="16" rx="3" fill="#121a29"/><rect x="66" y="146" width="22" height="16" rx="3" fill="#121a29"/><rect x="96" y="146" width="22" height="16" rx="3" fill="#121a29"/>
+            <rect x="36" y="170" width="22" height="16" rx="3"/><rect x="66" y="170" width="22" height="16" rx="3"/><rect x="96" y="170" width="22" height="16" rx="3"/>
+          </g>
+          <circle cx="300" cy="150" r="58" fill="url(#reel)"/>
+          <circle cx="300" cy="150" r="14" fill="#0e1522"/>
+          <g fill="#0e1522">
+            <circle cx="300" cy="108" r="10"/><circle cx="300" cy="192" r="10"/>
+            <circle cx="342" cy="150" r="10"/><circle cx="258" cy="150" r="10"/>
+            <circle cx="330" cy="120" r="9"/><circle cx="270" cy="180" r="9"/>
+            <circle cx="330" cy="180" r="9"/><circle cx="270" cy="120" r="9"/>
+          </g>
+          <circle cx="300" cy="150" r="6" fill="#e8b04b"/>
+          <path d="M150 150 L236 150" stroke="#e8b04b" stroke-width="2" stroke-dasharray="5 6"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="layout">
+      <div class="main-col">
+
+        <!-- 领域概览 -->
+        <section class="block" id="overview" aria-labelledby="ovTitle">
+          <div class="block-head">
+            <h2 id="ovTitle">领域概览：一部大片从开机到上线的四道关</h2>
+            <span class="sub">截至 2026-11-08</span>
+          </div>
+          <p class="dek">好莱坞七大厂与 A24、NEON 等独立厂牌同场竞争，一部电影要经过发行分级、制式排片、窗口期谈判与奖项资格四道流程，才走到观众面前。</p>
+          <div class="overview-grid">
+            <div class="ov-item"><b>发行分级</b><span>MPA 分 G、PG、PG-13、R、NC-17 五档；英国 BBFC 用 U、PG、12A、15、18。<span class="num">10月28日</span>《暗潮线》因暴力场面被定为 R。</span></div>
+            <div class="ov-item"><b>制式排片</b><span>IMAX 70mm、杜比影院、ScreenX 三种高规格厅占北美银幕总数约 <span class="num">6%</span>，却贡献了首周末票房的 <span class="num">21%</span>。</span></div>
+            <div class="ov-item"><b>窗口期</b><span>院线到流媒体的间隔由发行方与院线单独议定。2026 年秋季档平均 <span class="num">58 天</span>，比 2025 年同期缩短 6 天。</span></div>
+            <div class="ov-item"><b>奖项资格</b><span>奥斯卡最佳影片须在洛杉矶县影院连续商业放映 7 天，2026 年 8 月新规比旧规多 2 天，且需提交排片证明。</span></div>
+            <div class="ov-item"><b>片长与节奏</b><span>本季在映影片平均 128 分钟，超过 150 分钟的 5 部里有 3 部是传记片；影院通常为长片预留 15 分钟中场缓冲。</span></div>
+            <div class="ov-item"><b>字幕与配音</b><span>中国大陆引进版多为原声字幕，动画片另做国语配音；英国与爱尔兰院线普遍不设配音版，仅儿童场提供。</span></div>
+          </div>
+        </section>
+
+        <!-- 精选内容推荐 -->
+        <section class="block" id="picks" aria-labelledby="pickTitle">
+          <div class="block-head">
+            <h2 id="pickTitle">精选内容推荐：11月第二周值得进影院的四部</h2>
+            <span class="sub">按制式与口碑筛</span>
+          </div>
+          <p class="dek">挑选标准只有两条：高规格厅有独家画幅或音效设计，且烂番茄新鲜度不低于 80%。</p>
+          <div class="card-grid">
+            <article class="card">
+              <img src="https://picsum.photos/seed/scifibeacon/640/360" width="640" height="360" loading="lazy" alt="科幻片《苍穹信使》剧照：环形空间站舱内视角">
+              <div class="card-body">
+                <h3>《苍穹信使》· IMAX 科幻</h3>
+                <p>导演艾拉·诺兰把第三幕拍成 1.9:1 画幅，太空舱纵向多出约 15% 画面。北美 11月1日开画，首周末 6840 万美元。</p>
+                <div class="tag-row"><span class="tag blue">IMAX 1.9:1</span><span class="tag">PG-13</span></div>
+                <div class="meta"><span>片长 141 分钟</span><span>烂番茄 92%</span></div>
+              </div>
+            </article>
+            <article class="card">
+              <img src="https://picsum.photos/seed/londonletter/640/360" width="640" height="360" loading="lazy" alt="英伦剧情片《北岸来信》剧照：雨中的伦敦排屋街道">
+              <div class="card-body">
+                <h3>《北岸来信》· 英伦剧情</h3>
+                <p>BBC Film 与 Film4 联合出品，讲一对分居姐弟靠信件往来。Gotham 提名最佳剧本与最佳主角，英国分级 12A。</p>
+                <div class="tag-row"><span class="tag">12A</span><span class="tag red">颁奖季</span></div>
+                <div class="meta"><span>片长 117 分钟</span><span>烂番茄 88%</span></div>
+              </div>
+            </article>
+            <article class="card">
+              <img src="https://picsum.photos/seed/actionchase/640/360" width="640" height="360" loading="lazy" alt="动作片《暗潮线》剧照：夜间港口追逐场景">
+              <div class="card-body">
+                <h3>《暗潮线》· 动作惊悚</h3>
+                <p>A24 出品，长镜头追车段落约 9 分钟。10月28日定为 R 级，暴力和语言提示明确；杜比全景声版本低频明显。</p>
+                <div class="tag-row"><span class="tag red">R</span><span class="tag blue">杜比全景声</span></div>
+                <div class="meta"><span>片长 124 分钟</span><span>烂番茄 84%</span></div>
+              </div>
+            </article>
+            <article class="card">
+              <img src="https://picsum.photos/seed/animforest/640/360" width="640" height="360" loading="lazy" alt="动画片《橡果与风》剧照：森林中的手绘角色">
+              <div class="card-body">
+                <h3>《橡果与风》· 手绘动画</h3>
+                <p>爱尔兰 Cartoon Saloon 新作，几何手绘风格，全片 89 分钟，适合 7 岁以上儿童观赏，国语配音版同步上映。</p>
+                <div class="tag-row"><span class="tag">PG</span><span class="tag">国语配音</span></div>
+                <div class="meta"><span>片长 89 分钟</span><span>烂番茄 96%</span></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 最新更新 -->
+        <section class="block" id="updates" aria-labelledby="upTitle">
+          <div class="block-head">
+            <h2 id="upTitle">最新更新：档期、预告与上线时间</h2>
+            <span class="sub">近 7 天可核对条目</span>
+          </div>
+          <ul class="up-list">
+            <li><time>今天</time><span class="t">《苍穹信使》确认引进，内地定档 11月21日，IMAX 版本同步</span><span class="from">发行方公告</span></li>
+            <li><time>昨天</time><span class="t">《暗潮线》发布正片片段 2 分 14 秒，展示港口追车长镜头起手</span><span class="from">A24 官方频道</span></li>
+            <li><time>11月6日</time><span class="t">Gotham 奖公布提名，《北岸来信》获最佳剧本、最佳主角等四项</span><span class="from">Gotham Awards</span></li>
+            <li><time>11月4日</time><span class="t">《橡果与风》内地国语配音版确定配音阵容，12月5日上映</span><span class="from">引进方物料</span></li>
+            <li><time>11月2日</time><span class="t">环球公布窗口期：新片院线到 Peacock 上线间隔 68 天</span><span class="from">财报电话会</span></li>
+            <li><time>10月30日</time><span class="t">英国 BBFC 将《暗潮线》定为 18 级，理由为“持续强烈的暴力描写”</span><span class="from">BBFC 分级页</span></li>
+          </ul>
+        </section>
+
+        <!-- 分类入口 -->
+        <section class="block" id="cats" aria-labelledby="catTitle">
+          <div class="block-head">
+            <h2 id="catTitle">分类入口：按类型与制式找片</h2>
+            <span class="sub">8 个频道</span>
+          </div>
+          <div class="cat-grid">
+            <a class="cat" href="/#picks">好莱坞科幻大片<small>太空·硬设定</small></a>
+            <a class="cat" href="/#picks">英伦文艺剧情片<small>12A·家庭题材</small></a>
+            <a class="cat" href="/#picks">动作惊悚与追车片<small>R 级·长镜头</small></a>
+            <a class="cat" href="/#picks">欧洲三大电影节<small>戛纳·威尼斯</small></a>
+            <a class="cat" href="/#guide">IMAX 与杜比影院<small>制式对比</small></a>
+            <a class="cat" href="/#deep">北美周末票房榜<small>周更数据</small></a>
+            <a class="cat" href="/#updates">流媒体上线时间<small>窗口期</small></a>
+            <a class="cat" href="/#faq">分级与片长规则<small>MPA·BBFC</small></a>
+          </div>
+        </section>
+
+        <!-- 深度解析 -->
+        <section class="block deep" id="deep" aria-labelledby="deepTitle">
+          <h2 id="deepTitle">深度解析：高规格厅正在吃掉中小成本片的空间</h2>
+          <p class="dek">核心判断：制式溢价把观众集中到少数影片，中小成本片在档期选择上被迫退让——但这条判断只在特定条件下成立，下面拆开核对。</p>
+
+          <div class="col2">
+            <h3>判断一：制式厅的票房集中度被高估了</h3>
+            <p>IMAX 与杜比影院确实贡献了首周末 21% 的票房，但 2026 年 10月9日至11月6日的北美周榜显示，这个比例在大片空档周会掉到 8% 以下。10月17日那一周冠军是成本 900 万美元的恐怖片《钟楼夜》，全片没有 IMAX 版本，照样拿到 1420 万美元开画。制式是放大器，不是发动机。</p>
+            <p>更细的对比落在排片场次上。《苍穹信使》上映首周在 AMC 林肯广场店拿到 12 个 IMAX 场次中的 9 个，但普通厅的 26 个场次里上座率只有 41%。真正稀缺的是厅，不是片。</p>
+
+            <h3>判断二：窗口期缩短改变的是发行节奏，不是观众习惯</h3>
+            <p>环球在 11月2日财报电话会上给出 68 天的窗口期，A24 维持 50 天上下。2025 年同期这两个数字分别是 80 天和 60 天。缩短的直接原因是流媒体平台按观看时长结算的分成模式——晚一天上线，平台方就少一天的活跃数据。</p>
+            <p>可查的一条线索：Comscore 的周报里，2026 年 10 月北美影院观众中 35 岁以上群体占比 43%，比 2024 年高 5 个百分点。这个群体进影院频率低，但更倾向等流媒体。窗口期是为他们调的，不是为刷首映的年轻观众调的。</p>
+
+            <h3>判断三：奖项资格新规对独立片的影响是分化的</h3>
+            <p>2026 年 8 月学院把最佳影片的影院放映门槛从 5 天提到 7 天，并要求提交排片证明。对 A24、NEON 这种本来就在洛杉矶做长线放映的厂牌，成本增加有限；对靠单周点映冲提名的中小发行方，额外两天意味着多租一个厅、多付一轮宣发。</p>
+            <p>拿《北岸来信》做样本：它 10月24日在洛杉矶两家影院点映，按旧规 5 天即可满足资格，按新规要多排到 10月31日。发行方公开的说法是“排片成本增加约 4 万美元”，这个数字未获第三方核实，属于转述。</p>
+          </div>
+
+          <div class="callout">
+            <b>把判断拆成可核对的结构：</b>“高规格厅挤压中小片”这一说法，只有在同时满足①当周有 IMAX 大片开画、②该片评分高于 80%、③中小片与其档期重叠三周以上时才成立。2026 年 10 月符合前两条的仅 2 周，第三条一次都没满足。
+          </div>
+
+          <table class="fact-tbl">
+            <caption style="text-align:left;font-size:.78rem;color:#5c6879;margin-bottom:6px;">事件分层：同一部片在不同信息层的落点</caption>
+            <thead><tr><th>事件</th><th>事实层</th><th>回应层</th><th>推测层</th></tr></thead>
+            <tbody>
+              <tr><td>《暗潮线》定为 R 级</td><td>10月28日 MPA 分级文件列明暴力与语言两项</td><td>A24 表示不剪院线版</td><td>—</td></tr>
+              <tr><td>《苍穹信使》内地定档</td><td>11月21日，IMAX 同步</td><td>—</td><td>业内猜测会避开 12 月国产片密集档</td></tr>
+              <tr><td>环球窗口期 68 天</td><td>11月2日财报电话会原话</td><td>院线方未公开回应</td><td>—</td></tr>
+            </tbody>
+          </table>
+
+          <div class="checklist">
+            <b style="color:#26456e">核对清单（可自行验证）</b>
+            <ul>
+              <li>查 Box Office Mojo 周榜，确认 10月17日冠军片成本与开画数字</li>
+              <li>对照 BBFC 官网分级条目，看 18 级理由原文措辞</li>
+              <li>在学院官网检索 2026 年 8 月规则修订公告的放映天数条款</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 体验指南 -->
+        <section class="block" id="guide" aria-labelledby="guideTitle">
+          <div class="block-head">
+            <h2 id="guideTitle">体验指南：第一次看高规格厅的五个准备</h2>
+            <span class="sub">按购票到入座顺序</span>
+          </div>
+          <div class="steps">
+            <div class="step"><b>先查制式再选座</b>IMAX 1.9:1 画幅的影片，最佳座位在影厅中后段第 7 至 9 排；杜比影院因银幕略小，第 5 排就够。购票页会标注“1.9:1 独家画幅”，没有这行字的 IMAX 场次多为后期转制。</div>
+            <div class="step"><b>确认分级与片长</b>《暗潮线》R 级，英国 18 级，带未成年人入场会被拒。片长超过 140 分钟的场次，影院一般在片前预留 15 分钟广告，实际开映时间以票面加 15 分钟估算。</div>
+            <div class="step"><b>原声还是配音</b>动画片《橡果与风》国语配音版与英文原声版同日上映，购票时看片名后缀“国配”二字。非动画片内地基本只有原声字幕版。</div>
+            <div class="step"><b>停车与散场路线</b>高规格厅多集中在商场顶层，散场时电梯排队 10 分钟以上。选座靠过道，避开最后一场 22:30 之后的场次。</div>
+            <div class="step"><b>票根与积分</b>AMC Stubs、Cineworld Unlimited 对 IMAX 场次加收 3 至 5 美元，会员积分仍按普通场次累计。买套票比单买便宜约 18%。</div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="block" id="faq" aria-labelledby="faqTitle">
+          <div class="block-head">
+            <h2 id="faqTitle">常见问题：制式、分级与档期</h2>
+            <span class="sub">4 个高频疑问</span>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>IMAX 和杜比影院看科幻片，画质差别大吗？</summary>
+              <div class="ans">以《苍穹信使》为例，IMAX 版本画幅比 1.9:1，杜比影院维持 2.39:1，太空舱场景纵向可见内容多出约 15%。杜比影院的优势在激光亮度和全景声，暗场细节更稳；追求画面完整选 IMAX，追求音效定位选杜比。</div>
+            </details>
+            <details>
+              <summary>英国电影为什么常标注 12A 而不是 12？</summary>
+              <div class="ans">12A 是影院版本，12 岁以下儿童须由成人陪同入场；12 则适用于家庭影碟与流媒体。同一部片在影院和流媒体平台可能显示不同标签，《北岸来信》影院标 12A，上线后标 12。</div>
+            </details>
+            <details>
+              <summary>奥斯卡最佳影片的资格规则 2026 年有变化吗？</summary>
+              <div class="ans">美国电影艺术与科学学院 2026 年 8 月公布的新规要求，最佳影片候选须在洛杉矶县影院完成至少连续 7 天商业放映，比旧规多 2 天，并提交排片证明。对已做长线放映的发行方影响较小。</div>
+            </details>
+            <details>
+              <summary>流媒体上线和影院窗口期一般隔多久？</summary>
+              <div class="ans">2026 年秋季档主流发行方给出的窗口期在 45 至 75 天之间。A24 的动作片多在 50 天左右上线北美平台，环球的大制作通常接近 70 天，环球 11月2日财报电话会给出的数字是 68 天。</div>
+            </details>
+          </div>
+        </section>
+
+        <!-- 用户评论 -->
+        <section class="block" id="reviews" aria-labelledby="revTitle">
+          <div class="block-head">
+            <h2 id="revTitle">用户评论：来自影院散场后的即时反馈</h2>
+            <span class="sub">5 条 · 含中性意见</span>
+          </div>
+          <div class="comments">
+            <div class="cmt">
+              <div class="who"><span class="av">林</span><b>林澈</b><span>11月7日 · 上海</span></div>
+              <p><span class="ref">《苍穹信使》</span>第三幕画幅展开那一下确实值回 IMAX 票价，但前 40 分钟对白太密，我旁边两位观众中途出去买饮料了。音效低频有点过，座椅跟着震。</p>
+            </div>
+            <div class="cmt">
+              <div class="who"><span class="av">A</span><b>Ada_W</b><span>11月6日 · 伦敦</span></div>
+              <p><span class="ref">《北岸来信》</span>12A 分级有点保守，全片没有暴力镜头，主要就是情绪戏。结尾姐弟见面那场戏的长镜头一气呵成，比原著小说收得干净。字幕翻译把“North Bank”翻成“北岸”没问题，但把邮戳日期译错了。</p>
+            </div>
+            <div class="cmt">
+              <div class="who"><span class="av">郑</span><b>郑明远</b><span>11月5日 · 北京</span></div>
+              <p><span class="ref">《暗潮线》</span>追车长镜头吹得有点过。9 分钟里大概有 3 处明显接缝，在港口集装箱那一段能看出来。A24 这次的剧本也偏薄，反派动机交代不足。R 级给得倒是合理。</p>
+            </div>
+            <div class="cmt">
+              <div class="who"><span class="av">M</span><b>Momo看片</b><span>11月3日 · 广州</span></div>
+              <p><span class="ref">《橡果与风》</span>国语配音版意外不错，配音演员的节奏跟角色对得上。89 分钟对小孩来说刚好，中间有一段风声留白，全场小孩都安静了。手绘线条在小银幕上也清楚。</p>
+            </div>
+            <div class="cmt">
+              <div class="who"><span class="av">C</span><b>Chris_院线观察</b><span>11月2日 · 多伦多</span></div>
+              <p>窗口期缩到 68 天，对我这种每周进影院的人不算坏消息，但小片更难排到好场次了。上周想看一部 900 万成本的恐怖片，全市只有一家影院排午夜场。</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 相关资讯 -->
+        <section class="block" id="news" aria-labelledby="newsTitle">
+          <div class="block-head">
+            <h2 id="newsTitle">相关资讯：颁奖季与发行动态</h2>
+            <span class="sub">5 条 · 带来源与日期</span>
+          </div>
+          <ul class="news-list">
+            <li><span class="k">Gotham 奖提名公布，《北岸来信》领跑独立片单元</span><span class="d">11月6日 · Gotham Awards 官网</span></li>
+            <li><span class="k">环球财报电话会确认 68 天窗口期，比去年同期缩短 12 天</span><span class="d">11月2日 · 财报记录</span></li>
+            <li><span class="k">《苍穹信使》内地定档 11月21日，IMAX 版本同步引进</span><span class="d">11月8日 · 发行方公告</span></li>
+            <li><span class="k">BBFC 更新分级指引，暴力描写评级细则增加 3 条案例</span><span class="d">10月30日 · BBFC 官网</span></li>
+            <li><span class="k">学院公布 2027 年奥斯卡最佳影片资格新规，放映门槛 7 天</span><span class="d">10月22日 · 学院公告</span></li>
+          </ul>
+        </section>
+
+        <!-- 相关推荐 -->
+        <section class="block" id="recs" aria-labelledby="recTitle">
+          <div class="block-head">
+            <h2 id="recTitle">相关推荐：按口味与制式继续找</h2>
+            <span class="sub">10 个标签</span>
+          </div>
+          <div class="rec-tags">
+            <a href="/#picks">IMAX 科幻大片推荐</a>
+            <a href="/#picks">英伦文艺剧情片片单</a>
+            <a href="/#picks">R 级动作惊悚片</a>
+            <a href="/#deep">北美周末票房榜</a>
+            <a href="/#guide">杜比影院选座攻略</a>
+            <a href="/#updates">流媒体上线时间表</a>
+            <a href="/#faq">MPA 分级对照表</a>
+            <a href="/#news">颁奖季前哨站动态</a>
+            <a href="/#deep">影院窗口期变化</a>
+            <a href="/#picks">手绘动画长片</a>
+          </div>
+        </section>
+
+        <!-- 榜单 -->
+        <section class="block" id="rank" aria-labelledby="rkTitle">
+          <div class="block-head">
+            <h2 id="rkTitle">本周北美票房榜：11月7日至11月8日</h2>
+            <span class="sub">单位：万美元 · 数据口径 Box Office Mojo</span>
+          </div>
+          <ol class="rank">
+            <li><span class="no">1</span><span class="tt">《苍穹信使》</span><span class="sc">周末 <b>6840</b> · 累计 1.42 亿</span></li>
+            <li><span class="no">2</span><span class="tt">《暗潮线》</span><span class="sc">周末 <b>3190</b> · 累计 8720</span></li>
+            <li><span class="no">3</span><span class="tt">《钟楼夜》</span><span class="sc">周末 <b>1460</b> · 累计 4100</span></li>
+            <li><span class="no">4</span><span class="tt">《北岸来信》</span><span class="sc">周末 <b>620</b> · 点映累计 980</span></li>
+            <li><span class="no">5</span><span class="tt">《橡果与风》</span><span class="sc">周末 <b>540</b> · 累计 2260</span></li>
+          </ol>
+        </section>
+
+        <!-- 时间线 -->
+        <section class="block" id="timeline" aria-labelledby="tlTitle">
+          <div class="block-head">
+            <h2 id="tlTitle">上映节奏时间线：从点映到大规模公映</h2>
+            <span class="sub">以 10 月至 11 月重点片为例</span>
+          </div>
+          <div class="timeline">
+            <div class="tl-item"><time>10月17日</time><b>《钟楼夜》北美公映，无 IMAX 版本</b><span>成本 900 万美元，开画 1420 万美元</span></div>
+            <div class="tl-item"><time>10月24日</time><b>《北岸来信》洛杉矶两家影院点映</b><span>按旧规 5 天满足资格，按新规需排至 31 日</span></div>
+            <div class="tl-item"><time>10月28日</time><b>《暗潮线》MPA 分级确定为 R</b><span>英国 BBFC 定为 18 级，理由含“持续强烈的暴力描写”</span></div>
+            <div class="tl-item"><time>11月1日</time><b>《苍穹信使》北美开画</b><span>首周末 6840 万美元，IMAX 场次占比 34%</span></div>
+            <div class="tl-item"><time>11月21日</time><b>《苍穹信使》内地公映</b><span>IMAX 版本同步引进，原声字幕</span></div>
+            <div class="tl-item"><time>12月5日</time><b>《橡果与风》国语配音版上映</b><span>与英文原声版同日，建议 7 岁以上观看</span></div>
+          </div>
+        </section>
+
+      </div>
+
+      <aside class="side-col">
+        <div class="side-block side-nav" aria-label="栏目导航">
+          <h2>栏目导航</h2>
+          <a href="/#overview">领域概览</a>
+          <a href="/#picks">精选内容推荐</a>
+          <a href="/#updates">最新更新</a>
+          <a href="/#cats">分类入口</a>
+          <a href="/#deep">深度解析</a>
+          <a href="/#guide">体验指南</a>
+          <a href="/#faq">常见问题</a>
+          <a href="/#reviews">用户评论</a>
+          <a href="/#news">相关资讯</a>
+          <a href="/#recs">相关推荐</a>
+          <a href="/#rank">本周票房榜</a>
+          <a href="/#timeline">上映时间线</a>
+        </div>
+
+        <div class="side-block">
+          <h2>近期可核对数字</h2>
+          <ul class="mini-list">
+            <li><b>58 天</b><span>2026 秋季档平均窗口期</span></li>
+            <li><b>6% 银幕 / 21% 首周票房</b><span>高规格厅占比</span></li>
+            <li><b>128 分钟</b><span>本季在映影片平均片长</span></li>
+            <li><b>7 天</b><span>奥斯卡最佳影片放映门槛</span></li>
+            <li><b>43%</b><span>35 岁以上影院观众占比</span></li>
+          </ul>
+        </div>
+
+        <div class="side-block">
+          <blockquote class="quote-card">
+            <p>“IMAX 的排片优势不是市场自然形成的，是发行方在合约里谈出来的——这一点在 2026 年的财报电话会上第一次被明说。”</p>
+            <cite>—— 院线分析师 何塞·马丁内斯，11月2日</cite>
+          </blockquote>
+        </div>
+
+        <div class="side-block">
+          <h2>按制式找片</h2>
+          <ul class="mini-list">
+            <li><b>IMAX 1.9:1</b><span>《苍穹信使》第三幕</span></li>
+            <li><b>杜比全景声</b><span>《暗潮线》追车段</span></li>
+            <li><b>70mm 胶片</b><span>11月暂无新片</span></li>
+            <li><b>ScreenX 三面屏</b><span>《钟楼夜》午夜场</span></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="brandline">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#1b2740"/>
+            <path d="M16 22h32v20H16z" fill="none" stroke="#e8b04b" stroke-width="3"/>
+            <circle cx="32" cy="32" r="5" fill="#e8b04b"/>
+          </svg>
+          <strong style="color:#fff;font-size:.95rem;">欧美影视大片</strong>
+        </div>
+        <p class="pos">把票房、分级、制式与上线时间放进同一张对照表，减少查片时来回跳转。</p>
+        <p class="note">示例数据说明：票房与片长取自公开周报口径，评论为示例用户反馈，非真实账号发言。更新日期对应正文可核对条目。</p>
+      </div>
+      <div>
+        <h3>片单与数据</h3>
+        <a href="/#picks">精选内容推荐</a>
+        <a href="/#rank">北美周末票房榜</a>
+        <a href="/#updates">流媒体上线时间</a>
+        <a href="/#timeline">上映节奏时间线</a>
+      </div>
+      <div>
+        <h3>观影服务</h3>
+        <a href="/#guide">高规格厅选座攻略</a>
+        <a href="/#faq">分级与片长规则</a>
+        <a href="/#deep">窗口期变化分析</a>
+        <a href="/#cats">按类型与制式找片</a>
+      </div>
+      <div>
+        <h3>交流与反馈</h3>
+        <a href="/#reviews">用户评论</a>
+        <a href="/#news">颁奖季动态</a>
+        <a href="/#recs">相关推荐标签</a>
+        <a href="/#overview">发行流程概览</a>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2026 欧美影视大片 · 内容整理与示例数据</span>
+      <span>页面更新：2026-11-08</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  var nav = document.getElementById('mainNav');
+  var menuBtn = document.getElementById('menuBtn');
+  var toTop = document.getElementById('toTop');
+  var searchInput = document.getElementById('searchInput');
+  var searchOut = document.getElementById('searchOut');
+
+  // 搜索索引：从各板块标题、卡片标题、FAQ、标签里收集
+  var searchData = [];
+  document.querySelectorAll('main h2, main h3, .faq summary, .rec-tags a, .nav a').forEach(function(el){
+    var text = el.textContent.trim();
+    if(!text) return;
+    var target = el.closest('section');
+    if(!target) return;
+    searchData.push({text: text, id: target.id || 'top'});
+  });
+
+  // 去重
+  var seen = {};
+  searchData = searchData.filter(function(item){
+    var key = item.text + '|' + item.id;
+    if(seen[key]) return false;
+    seen[key] = true;
+    return true;
+  });
+
+  if(searchInput){
+    searchInput.addEventListener('input', function(){
+      var q = this.value.trim().toLowerCase();
+      if(!q){
+        searchOut.classList.remove('show');
+        searchOut.innerHTML = '';
+        return;
+      }
+      var hits = searchData.filter(function(item){
+        return item.text.toLowerCase().indexOf(q) !== -1;
+      }).slice(0,8);
+      if(hits.length === 0){
+        searchOut.innerHTML = '<div class="empty">没有找到“' + escapeHtml(this.value.trim()) + '”，换个片名或类型词试试。</div>';
+      } else {
+        searchOut.innerHTML = hits.map(function(item){
+          return '<a href="/#' + item.id + '">' + escapeHtml(item.text) + '</a>';
+        }).join('');
+      }
+      searchOut.classList.add('show');
+    });
+    searchInput.addEventListener('blur', function(){
+      setTimeout(function(){ searchOut.classList.remove('show'); }, 160);
+    });
+    searchInput.addEventListener('focus', function(){
+      if(this.value.trim()) searchOut.classList.add('show');
+    });
+    searchOut.addEventListener('click', function(){
+      searchOut.classList.remove('show');
+      searchInput.value = '';
+    });
+  }
+
+  function escapeHtml(s){
+    return s.replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  // 移动端菜单
+  if(menuBtn){
+    menuBtn.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A' && window.innerWidth <= 760){
+        nav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  // 回到顶部
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 420) toTop.classList.add('show');
+    else toTop.classList.remove('show');
+  }, {passive:true});
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  // 侧栏滚动高亮
+  var sideLinks = document.querySelectorAll('.side-nav a');
+  var sections = [];
+  sideLinks.forEach(function(a){
+    var id = a.getAttribute('href').replace('/#','');
+    var sec = document.getElementById(id);
+    if(sec) sections.push({el:sec, link:a});
+  });
+  if('IntersectionObserver' in window && sections.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        var link = sections.find(function(s){ return s.el === en.target; });
+        if(!link) return;
+        if(en.isIntersecting){
+          sideLinks.forEach(function(l){ l.classList.remove('active'); });
+          link.link.classList.add('active');
+        }
+      });
+    }, {rootMargin:'-90px 0px -60% 0px', threshold:0});
+    sections.forEach(function(s){ io.observe(s.el); });
+  }
+})();
+</script>
+</body>
+          </html>
