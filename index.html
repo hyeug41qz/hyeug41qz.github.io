@@ -1,0 +1,908 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>寻剧吧免费追剧-国产剧与短剧观看清单</title>
+<meta name="description" content="寻剧吧免费追剧整理国产剧、悬疑剧、古装剧与微短剧的免费观看线索，标注平台、更新时间、集数与清晰度，提供选剧方法与更新记录。">
+<meta name="keywords" content="寻剧吧免费追剧">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2312383a'/%3E%3Cpath d='M10 9l12 7-12 7z' fill='%23f0b429'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#16221f;
+  --ink-soft:#3d4f4a;
+  --muted:#6a7b76;
+  --paper:#f6f3ec;
+  --card:#fffdf8;
+  --line:#dcd6c8;
+  --brand:#12383a;
+  --brand-2:#1d5b54;
+  --accent:#f0b429;
+  --accent-soft:#fdf0cd;
+  --warn:#a8442c;
+  --radius-s:6px;
+  --radius-m:10px;
+  --radius-l:16px;
+  --shadow-1:0 1px 2px rgba(18,56,58,.08),0 4px 12px rgba(18,56,58,.06);
+  --shadow-2:0 6px 24px rgba(18,56,58,.12);
+  --sp-1:6px; --sp-2:12px; --sp-3:18px; --sp-4:28px; --sp-5:44px;
+  --fs-h1:clamp(1.75rem,3.4vw,2.6rem);
+  --fs-h2:clamp(1.25rem,2vw,1.6rem);
+  --fs-h3:1.06rem;
+  --fs-body:1rem;
+  --fs-s:0.86rem;
+  --sticky-h:96px;
+  --maxw:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--sticky-h)}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  line-height:1.75;font-size:var(--fs-body);
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--brand-2);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+h1,h2,h3,h4{line-height:1.32;margin:0;font-weight:700;letter-spacing:.01em}
+p{margin:0 0 var(--sp-2)}
+ul,ol{margin:0 0 var(--sp-2);padding-left:1.2em}
+.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 18px}
+
+/* ===== 吸顶组合：公告条 + 页头 ===== */
+.sticky-wrap{position:sticky;top:0;z-index:60}
+.notice{
+  background:var(--brand);color:#e8f2ee;font-size:var(--fs-s);
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.notice .container{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding-top:7px;padding-bottom:7px}
+.notice b{color:var(--accent);font-weight:700}
+.notice a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.site-header{background:rgba(246,243,236,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);box-shadow:var(--shadow-1)}
+.header-inner{display:flex;align-items:center;gap:var(--sp-3);padding-top:12px;padding-bottom:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;flex:none}
+.brand svg{width:38px;height:38px;flex:none}
+.brand-text{display:flex;flex-direction:column;line-height:1.2}
+.brand-text .name{font-size:1.18rem;font-weight:800;color:var(--brand);letter-spacing:.02em}
+.brand-text .sub{font-size:.7rem;color:var(--muted);letter-spacing:.14em}
+.main-nav{display:flex;gap:2px;flex-wrap:wrap;flex:1}
+.main-nav a{
+  font-size:.9rem;color:var(--ink-soft);padding:7px 10px;border-radius:var(--radius-s);
+  white-space:nowrap;
+}
+.main-nav a:hover{background:#ebe5d6;text-decoration:none;color:var(--brand)}
+.main-nav a.active{background:var(--brand);color:#fff}
+.header-tools{display:flex;align-items:center;gap:8px;margin-left:auto}
+.search-form{display:flex;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px 4px 3px 12px}
+.search-form input{
+  border:0;background:transparent;font:inherit;font-size:.86rem;width:132px;padding:4px 0;color:var(--ink);
+}
+.search-form input:focus{outline:none}
+.search-form button{
+  border:0;background:var(--brand);color:#fff;border-radius:999px;padding:5px 12px;font-size:.82rem;cursor:pointer;
+}
+.search-form button:hover{background:var(--brand-2)}
+.menu-toggle{
+  display:none;align-items:center;gap:6px;border:1px solid var(--line);background:var(--card);
+  border-radius:var(--radius-s);padding:7px 11px;font:inherit;font-size:.86rem;cursor:pointer;color:var(--ink);
+}
+.search-feedback{
+  display:none;font-size:var(--fs-s);color:var(--warn);background:var(--accent-soft);
+  border:1px solid #e8cf91;border-radius:var(--radius-s);padding:6px 10px;margin:0 0 10px;
+}
+.search-feedback.show{display:block}
+
+/* ===== 首屏 ===== */
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(900px 420px at 88% -10%,#d8e9e2 0%,transparent 60%),
+  linear-gradient(160deg,#eef5f0 0%,#f6f3ec 55%,#f3ecdd 100%);
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:var(--sp-4);align-items:center;padding:var(--sp-5) 0 var(--sp-4);
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;font-size:.78rem;letter-spacing:.12em;
+  color:var(--brand-2);background:#e3efe8;border:1px solid #c3dcd0;border-radius:999px;padding:4px 12px;margin-bottom:14px;
+}
+.hero-kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--warn)}
+.hero h1{font-size:var(--fs-h1);color:var(--brand);letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--warn)}
+.hero-lead{margin-top:14px;font-size:1.02rem;color:var(--ink-soft);max-width:34em}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:var(--sp-3)}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:11px 20px;font-size:.92rem;
+  font-weight:600;border:1px solid transparent;transition:transform .18s ease,background .18s ease;
+}
+.btn:hover{text-decoration:none;transform:translateY(-2px)}
+.btn-primary{background:var(--brand);color:#fff}
+.btn-primary:hover{background:var(--brand-2)}
+.btn-ghost{background:transparent;color:var(--brand);border-color:#b9cdc4}
+.btn-ghost:hover{background:#e6efe9}
+.hero-stats{display:flex;gap:var(--sp-4);flex-wrap:wrap;margin-top:var(--sp-4);padding-top:var(--sp-3);border-top:1px dashed #c9d7ce}
+.hero-stats div strong{display:block;font-size:1.4rem;color:var(--brand);line-height:1.2}
+.hero-stats div span{font-size:.78rem;color:var(--muted)}
+.hero-art{position:relative;min-height:290px}
+.hero-art svg{width:100%;height:auto;display:block;filter:drop-shadow(0 12px 24px rgba(18,56,58,.14))}
+
+/* ===== 通用板块 ===== */
+main{padding-bottom:var(--sp-5)}
+.section{padding:var(--sp-5) 0 var(--sp-4);border-bottom:1px solid var(--line)}
+.section:last-of-type{border-bottom:0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--sp-3);margin-bottom:var(--sp-3);flex-wrap:wrap}
+.sec-head h2{font-size:var(--fs-h2);color:var(--brand)}
+.sec-head .note{font-size:var(--fs-s);color:var(--muted)}
+.sec-head .more{font-size:var(--fs-s)}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  font-size:.8rem;background:var(--card);border:1px solid var(--line);border-radius:999px;
+  padding:4px 11px;color:var(--ink-soft);
+}
+.chip:hover{text-decoration:none;border-color:var(--brand-2);color:var(--brand)}
+
+/* 双栏主布局 */
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--sp-4);align-items:start}
+.side{border:1px solid var(--line);background:var(--card);border-radius:var(--radius-l);padding:var(--sp-3);box-shadow:var(--shadow-1)}
+.side h2{font-size:1rem;color:var(--brand);margin-bottom:10px}
+.side-nav{list-style:none;padding:0;margin:0 0 var(--sp-3)}
+.side-nav a{display:block;font-size:.86rem;padding:6px 9px;border-radius:var(--radius-s);color:var(--ink-soft);border-left:3px solid transparent}
+.side-nav a:hover{background:#eef4f0;text-decoration:none}
+.side-nav a.active{background:#e4efe8;border-left-color:var(--accent);color:var(--brand);font-weight:600}
+.side-box{border-top:1px dashed var(--line);padding-top:var(--sp-2);margin-top:var(--sp-2)}
+
+/* 网格卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:var(--sp-3)}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius-m);overflow:hidden;
+  display:flex;flex-direction:column;box-shadow:var(--shadow-1);transition:transform .18s ease,box-shadow .18s ease;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-2)}
+.card img{width:100%;height:150px;object-fit:cover}
+.card .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{font-size:.98rem}
+.card h3 a{color:var(--brand)}
+.card .meta{font-size:.76rem;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap}
+.card p{font-size:.85rem;color:var(--ink-soft);margin:0}
+.tagline{font-size:.74rem;color:var(--brand-2);background:#e9f2ec;border-radius:4px;padding:2px 7px;display:inline-block;width:fit-content}
+
+/* 紧凑列表 */
+.tight-list{list-style:none;padding:0;margin:0;border:1px solid var(--line);border-radius:var(--radius-m);background:var(--card);overflow:hidden}
+.tight-list li{display:flex;gap:12px;align-items:flex-start;padding:11px 14px;border-bottom:1px dashed var(--line);font-size:.9rem}
+.tight-list li:last-child{border-bottom:0}
+.tight-list .t{flex:1;min-width:0}
+.tight-list .t b{color:var(--brand);font-weight:600}
+.tight-list .d{font-size:.76rem;color:var(--muted);white-space:nowrap;flex:none;padding-top:2px}
+.badge{font-size:.7rem;padding:1px 7px;border-radius:4px;background:var(--accent-soft);color:#7a5410;white-space:nowrap;flex:none}
+
+/* 分类索引 */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.cat-card{
+  display:block;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brand-2);
+  border-radius:var(--radius-s);padding:10px 12px;color:var(--ink);
+}
+.cat-card:hover{text-decoration:none;background:#f1f7f3;border-left-color:var(--accent)}
+.cat-card strong{display:block;font-size:.92rem;color:var(--brand)}
+.cat-card span{font-size:.76rem;color:var(--muted)}
+
+/* 深度解析 */
+.analysis{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-l);padding:var(--sp-4);box-shadow:var(--shadow-1)}
+.analysis h2{color:var(--brand);margin-bottom:var(--sp-2)}
+.analysis h3{font-size:var(--fs-h3);color:var(--brand);margin:var(--sp-3) 0 8px;padding-left:10px;border-left:4px solid var(--accent)}
+.analysis p{color:var(--ink-soft)}
+.analysis p strong{color:var(--ink)}
+.quote-card{
+  background:#f2f7f3;border:1px solid #cfe0d5;border-left:4px solid var(--brand-2);
+  border-radius:var(--radius-s);padding:12px 16px;margin:var(--sp-3) 0;font-size:.9rem;color:var(--ink-soft);
+}
+.quote-card cite{display:block;margin-top:6px;font-style:normal;font-size:.76rem;color:var(--muted)}
+
+/* 表格对照 */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-m);background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:.85rem}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eef4f0;color:var(--brand);font-weight:600;font-size:.8rem;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td .ok{color:#2c6e4f;font-weight:600}
+td .no{color:var(--warn);font-weight:600}
+
+/* 步骤 */
+.steps{counter-reset:st;list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.steps li{position:relative;padding:12px 14px 12px 52px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-m);font-size:.9rem}
+.steps li::before{
+  counter-increment:st;content:counter(st);position:absolute;left:12px;top:12px;
+  width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;
+}
+
+/* FAQ */
+.faq{display:grid;gap:8px}
+details{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-m);overflow:hidden}
+summary{
+  cursor:pointer;padding:12px 16px;font-weight:600;font-size:.94rem;color:var(--brand);
+  list-style:none;display:flex;justify-content:space-between;gap:10px;align-items:center;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";color:var(--brand-2);font-weight:700;flex:none}
+details[open] summary::after{content:"－"}
+details .ans{padding:0 16px 14px;font-size:.9rem;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:10px}
+
+/* 评论 */
+.comment-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:var(--sp-2)}
+.comment{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-m);padding:13px 15px;font-size:.88rem;color:var(--ink-soft)}
+.comment .who{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:.78rem;color:var(--muted)}
+.avatar{width:26px;height:26px;border-radius:50%;background:var(--brand-2);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;flex:none}
+.comment .who b{color:var(--ink);font-weight:600}
+.comment mark{background:var(--accent-soft);color:#6b4b0d;padding:0 3px;border-radius:3px}
+
+/* 时间线 */
+.timeline{list-style:none;padding:0;margin:0;position:relative}
+.timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:#d6e3da}
+.timeline li{position:relative;padding:0 0 14px 30px;font-size:.9rem}
+.timeline li::before{content:"";position:absolute;left:2px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--card);border:3px solid var(--brand-2)}
+.timeline li b{color:var(--brand)}
+.timeline time{display:block;font-size:.76rem;color:var(--muted)}
+
+/* 榜单 */
+.rank-list{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.rank-list li{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-m);padding:10px 14px;font-size:.9rem}
+.rank-num{width:28px;height:28px;border-radius:8px;background:#e9f2ec;color:var(--brand);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;flex:none}
+.rank-list li:nth-child(1) .rank-num{background:var(--brand);color:#fff}
+.rank-list li:nth-child(2) .rank-num{background:var(--brand-2);color:#fff}
+.rank-list .rname{flex:1;min-width:0}
+.rank-list .rname span{display:block;font-size:.76rem;color:var(--muted)}
+.rank-list .rval{font-size:.78rem;color:var(--warn);font-weight:600;white-space:nowrap}
+
+/* 相关推荐标签 */
+.rec-tags{display:flex;flex-wrap:wrap;gap:8px}
+.rec-tags a{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.84rem;color:var(--ink-soft)}
+.rec-tags a:hover{border-color:var(--brand-2);background:#eef4f0;text-decoration:none;color:var(--brand)}
+
+/* 页脚 */
+.site-footer{background:var(--brand);color:#d7e6df;padding:var(--sp-5) 0 var(--sp-3);margin-top:var(--sp-4)}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:var(--sp-4)}
+.site-footer h3{color:var(--accent);font-size:.86rem;letter-spacing:.06em;margin-bottom:10px;font-weight:700}
+.site-footer p{font-size:.84rem;color:#b9cfc6;margin:0 0 8px}
+.site-footer ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.site-footer a{color:#d7e6df;font-size:.84rem}
+.site-footer a:hover{color:var(--accent)}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.footer-brand svg{width:34px;height:34px}
+.footer-brand .name{font-size:1.1rem;font-weight:800;color:#fff}
+.footer-meta{border-top:1px solid rgba(255,255,255,.14);margin-top:var(--sp-4);padding-top:var(--sp-2);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.76rem;color:#9fbab0}
+
+/* 回顶 */
+#toTop{
+  position:fixed;right:16px;bottom:18px;z-index:70;border:1px solid #cbd9d2;background:var(--card);
+  color:var(--brand);border-radius:999px;padding:9px 14px;font:inherit;font-size:.8rem;font-weight:600;
+  box-shadow:var(--shadow-2);cursor:pointer;opacity:0;pointer-events:none;transition:opacity .2s ease;
+}
+#toTop.show{opacity:1;pointer-events:auto}
+
+/* ===== 响应式 ===== */
+@media (max-width:1020px){
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .side{order:2}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-art{min-height:auto;max-width:440px;margin:0 auto}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  :root{--sticky-h:132px}
+  .menu-toggle{display:inline-flex}
+  .main-nav{display:none;flex-basis:100%;order:5;border-top:1px dashed var(--line);padding-top:8px;margin-top:4px}
+  .main-nav.open{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+  .main-nav a{white-space:normal}
+  .header-tools{margin-left:auto}
+  .search-form input{width:104px}
+  .hero-stats{gap:var(--sp-3)}
+  .section{padding:var(--sp-4) 0 var(--sp-3)}
+  .analysis{padding:var(--sp-3)}
+}
+@media (max-width:420px){
+  .search-form input{width:82px}
+  .brand-text .sub{display:none}
+  .hero-stats div strong{font-size:1.2rem}
+  #toTop{right:10px;bottom:12px;padding:8px 12px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important;animation:none !important}
+  .card:hover,.btn:hover{transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sticky-wrap">
+  <div class="notice" role="status">
+    <div class="container">
+      <span><b>更新</b> 11月7日 22:40 补入《雾港来信》第9—10集免费窗口，湖南卫视金鹰剧场23:10重播</span>
+      <a href="/#latest">查看更新记录</a>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/#top" aria-label="寻剧吧免费追剧首页">
+        <svg viewBox="0 0 40 40" role="img" aria-hidden="true">
+          <rect x="1" y="1" width="38" height="38" rx="10" fill="#12383a"/>
+          <path d="M16 12.5l12 7.5-12 7.5z" fill="#f0b429"/>
+          <circle cx="12" cy="20" r="2.4" fill="#d7e6df"/>
+        </svg>
+        <span class="brand-text">
+          <span class="name">寻剧吧免费追剧</span>
+          <span class="sub">剧集更新清单</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="主题导航">
+        <a href="/#overview">领域概览</a>
+        <a href="/#picks">精选片单</a>
+        <a href="/#latest">更新动态</a>
+        <a href="/#channels">分类入口</a>
+        <a href="/#analysis">深度解析</a>
+        <a href="/#guide">观看指南</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#talk">观众评论</a>
+      </nav>
+
+      <div class="header-tools">
+        <form class="search-form" id="searchForm" role="search">
+          <label for="siteSearch" class="sr-only" style="position:absolute;left:-9999px">站内查找剧名</label>
+          <input id="siteSearch" name="q" type="search" placeholder="找剧名 / 平台" autocomplete="off">
+          <button type="submit">查找</button>
+        </form>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav">目录</button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="hero-kicker"><span class="dot"></span>2026年11月 第45周 · 剧集窗口期</span>
+      <h1>寻剧吧免费追剧</h1>
+      <p class="hero-lead">把国产剧、悬疑剧、古装剧与横屏微短剧的免费观看窗口集中到一张表上：哪个平台先放、放到第几集、清晰度是标清还是1080P、几点关窗，都写成能核对的条目。当前收录 <strong>46部</strong> 在更剧集、<strong>12条</strong> 限时免费线索，更新到11月7日深夜。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/#latest">看今天更新了什么</a>
+        <a class="btn btn-ghost" href="/#picks">按类型挑片单</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>46</strong><span>在更国产剧</span></div>
+        <div><strong>1128</strong><span>已核对集数</span></div>
+        <div><strong>9</strong><span>观察平台</span></div>
+        <div><strong>32天</strong><span>连续更新记录</span></div>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 420 320" role="img">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#1d5b54"/><stop offset="1" stop-color="#0f2f31"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f0b429"/><stop offset="1" stop-color="#d99314"/>
+          </linearGradient>
+        </defs>
+        <rect x="16" y="22" width="388" height="276" rx="18" fill="url(#g1)"/>
+        <rect x="16" y="22" width="388" height="276" rx="18" fill="none" stroke="rgba(255,255,255,.14)"/>
+        <g opacity=".28" stroke="#d7e6df" stroke-width="1">
+          <line x1="16" y1="90" x2="404" y2="90"/><line x1="16" y1="160" x2="404" y2="160"/><line x1="16" y1="230" x2="404" y2="230"/>
+          <line x1="120" y1="22" x2="120" y2="298"/><line x1="236" y1="22" x2="236" y2="298"/><line x1="330" y1="22" x2="330" y2="298"/>
+        </g>
+        <rect x="44" y="52" width="150" height="96" rx="10" fill="#f6f3ec" opacity=".94"/>
+        <rect x="58" y="66" width="86" height="9" rx="4.5" fill="#12383a"/>
+        <rect x="58" y="84" width="120" height="6" rx="3" fill="#b9cdc4"/>
+        <rect x="58" y="98" width="104" height="6" rx="3" fill="#b9cdc4"/>
+        <rect x="58" y="116" width="56" height="16" rx="8" fill="url(#g2)"/>
+        <rect x="214" y="52" width="160" height="96" rx="10" fill="rgba(246,243,236,.12)" stroke="rgba(255,255,255,.22)"/>
+        <circle cx="258" cy="100" r="24" fill="url(#g2)"/>
+        <path d="M251 89l17 11-17 11z" fill="#12383a"/>
+        <rect x="294" y="80" width="66" height="7" rx="3.5" fill="#d7e6df" opacity=".8"/>
+        <rect x="294" y="96" width="48" height="7" rx="3.5" fill="#d7e6df" opacity=".5"/>
+        <rect x="294" y="112" width="58" height="7" rx="3.5" fill="#d7e6df" opacity=".35"/>
+        <g>
+          <rect x="44" y="176" width="108" height="98" rx="10" fill="rgba(246,243,236,.14)" stroke="rgba(255,255,255,.2)"/>
+          <rect x="58" y="190" width="80" height="7" rx="3.5" fill="#f0b429"/>
+          <rect x="58" y="206" width="64" height="6" rx="3" fill="#d7e6df" opacity=".6"/>
+          <rect x="58" y="220" width="76" height="6" rx="3" fill="#d7e6df" opacity=".4"/>
+          <rect x="58" y="240" width="42" height="18" rx="9" fill="#d7e6df" opacity=".25"/>
+        </g>
+        <g>
+          <rect x="166" y="176" width="108" height="98" rx="10" fill="rgba(246,243,236,.14)" stroke="rgba(255,255,255,.2)"/>
+          <rect x="180" y="190" width="60" height="7" rx="3.5" fill="#f0b429"/>
+          <rect x="180" y="206" width="80" height="6" rx="3" fill="#d7e6df" opacity=".6"/>
+          <rect x="180" y="220" width="54" height="6" rx="3" fill="#d7e6df" opacity=".4"/>
+          <rect x="180" y="240" width="66" height="18" rx="9" fill="#d7e6df" opacity=".25"/>
+        </g>
+        <g>
+          <rect x="288" y="176" width="86" height="98" rx="10" fill="#f0b429"/>
+          <rect x="302" y="192" width="58" height="8" rx="4" fill="#12383a"/>
+          <rect x="302" y="210" width="44" height="6" rx="3" fill="#12383a" opacity=".7"/>
+          <rect x="302" y="224" width="54" height="6" rx="3" fill="#12383a" opacity=".5"/>
+          <text x="302" y="258" font-size="16" font-weight="700" fill="#12383a" font-family="sans-serif">22:40</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<main class="container" id="mainArea">
+  <div id="searchFeedback" class="search-feedback" role="alert"></div>
+
+  <div class="layout">
+    <div class="content-col">
+
+      <!-- 1 领域概览 -->
+      <section class="section" id="overview">
+        <div class="sec-head">
+          <h2>国产剧免费窗口是怎么分层的</h2>
+          <span class="note">按平台类型拆，不按热度排</span>
+        </div>
+        <p>免费看剧并不是一个统一动作。央视八套与湖南卫视金鹰剧场的晚间档，靠电视信号和央视频、芒果TV的“限免”页面同步，通常只放前2—3集；爱奇艺、腾讯视频、优酷的会员剧会给出第1集免费、第2集起需会员的“试看窗口”；横屏微短剧则走抖音、快手、红果短剧的整季免费加广告模式。11月7日统计的46部在更剧里，长剧占31部，微短剧15部，免费形态完全不同。</p>
+        <div class="chip-row" style="margin-top:10px">
+          <a class="chip" href="/#channels">卫视黄金档</a>
+          <a class="chip" href="/#channels">平台限免页</a>
+          <a class="chip" href="/#channels">微短剧整季</a>
+          <a class="chip" href="/#channels">先网后台</a>
+          <a class="chip" href="/#channels">台网同步</a>
+          <a class="chip" href="/#channels">海外版权窗</a>
+        </div>
+      </section>
+
+      <!-- 2 精选内容推荐 -->
+      <section class="section" id="picks">
+        <div class="sec-head">
+          <h2>本周值得先看的四部</h2>
+          <a class="more" href="/#latest">全部更新 →</a>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <img src="https://picsum.photos/seed/xunju-wugang/480/300" width="480" height="300" loading="lazy" alt="《雾港来信》海报式画面：夜里的港口与集装箱灯">
+            <div class="body">
+              <span class="tagline">悬疑 · 台网同步</span>
+              <h3><a href="/#analysis">雾港来信：第9集起免费</a></h3>
+              <div class="meta"><span>芒果TV</span><span>11月7日 22:40</span><span>更新至10集</span></div>
+              <p>集装箱码头线在第8集收口，第9集转向海关内部，前两集免费不锁会员。</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="https://picsum.photos/seed/xunju-changan/480/300" width="480" height="300" loading="lazy" alt="《长安十二时》场景画面：唐代坊市灯笼与屋脊">
+            <div class="body">
+              <span class="tagline">古装 · 会员试看</span>
+              <h3><a href="/#guide">长安十二时：首集免费1080P</a></h3>
+              <div class="meta"><span>腾讯视频</span><span>11月5日</span><span>更新至18集</span></div>
+              <p>第1集免费且为1080P，第2集起会员。片尾曲版本与卫视版相差48秒。</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="https://picsum.photos/seed/xunju-shanya/480/300" width="480" height="300" loading="lazy" alt="微短剧《山崖上的快递站》画面：盘山公路与摩托车">
+            <div class="body">
+              <span class="tagline">微短剧 · 整季免费</span>
+              <h3><a href="/#guide">山崖上的快递站：40集全免</a></h3>
+              <div class="meta"><span>红果短剧</span><span>11月3日上线</span><span>每集2分10秒</span></div>
+              <p>整季免费带贴片广告，第1—12集无跳过按钮，第13集起可看广告解锁。</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="https://picsum.photos/seed/xunju-chengzhong/480/300" width="480" height="300" loading="lazy" alt="都市剧《城中村三十七号》画面：握手楼与晾衣绳">
+            <div class="body">
+              <span class="tagline">都市 · 卫视限免</span>
+              <h3><a href="/#latest">城中村三十七号：央视频限免3集</a></h3>
+              <div class="meta"><span>央视频</span><span>11月6日</span><span>更新至14集</span></div>
+              <p>央视频限免前3集，CCTV-8每晚19:30两集连播，回看保留7天。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3 最新更新 -->
+      <section class="section" id="latest">
+        <div class="sec-head">
+          <h2>更新动态：11月1日—11月7日</h2>
+          <span class="note">按发布时间倒序，均含可核对集数</span>
+        </div>
+        <ul class="tight-list">
+          <li><span class="badge">限免</span><span class="t"><b>《雾港来信》</b>芒果TV第9—10集免费，22:40放出，1080P，11月8日00:00前可看；第11集起转会员。</span><span class="d">11月7日</span></li>
+          <li><span class="badge">卫视</span><span class="t"><b>《城中村三十七号》</b>央视频开放第1—3集限免，CCTV-8第14集19:30播出，回看窗口7天。</span><span class="d">11月6日</span></li>
+          <li><span class="badge">试看</span><span class="t"><b>《长安十二时》</b>腾讯视频第1集免费切到1080P，第2—18集会员；字幕由简体改为简繁双轨。</span><span class="d">11月5日</span></li>
+          <li><span class="badge">上线</span><span class="t"><b>《山崖上的快递站》</b>红果短剧40集整季上线，前12集无跳过按钮，单集2分10秒。</span><span class="d">11月3日</span></li>
+          <li><span class="badge">撤窗</span><span class="t"><b>《北站以南》</b>爱奇艺第4—6集免费窗口关闭，恢复会员观看；已缓存用户不受影响。</span><span class="d">11月2日</span></li>
+          <li><span class="badge">补档</span><span class="t"><b>《渡口书店》</b>优酷补上第7集标清免费版，此前仅会员1080P可看。</span><span class="d">11月1日</span></li>
+        </ul>
+      </section>
+
+      <!-- 4 分类入口 -->
+      <section class="section" id="channels">
+        <div class="sec-head">
+          <h2>按类型找剧：10个常搜入口</h2>
+          <span class="note">点进去是同一页内的条目区</span>
+        </div>
+        <div class="cat-grid">
+          <a class="cat-card" href="/#analysis"><strong>悬疑刑侦剧</strong><span>9部在更 · 含《雾港来信》</span></a>
+          <a class="cat-card" href="/#guide"><strong>古装权谋剧</strong><span>7部在更 · 含《长安十二时》</span></a>
+          <a class="cat-card" href="/#latest"><strong>都市生活剧</strong><span>11部在更 · 含《城中村三十七号》</span></a>
+          <a class="cat-card" href="/#guide"><strong>横屏微短剧</strong><span>15部 · 单集2—4分钟</span></a>
+          <a class="cat-card" href="/#picks"><strong>卫视黄金档</strong><span>CCTV-8、湖南卫视、东方卫视</span></a>
+          <a class="cat-card" href="/#guide"><strong>先网后台剧</strong><span>平台先放6集再上星</span></a>
+          <a class="cat-card" href="/#latest"><strong>年代家庭剧</strong><span>5部 · 多在央视与爱奇艺</span></a>
+          <a class="cat-card" href="/#talk"><strong>职场行业剧</strong><span>4部 · 医疗、律政、海关</span></a>
+          <a class="cat-card" href="/#faq"><strong>短剧免费全集</strong><span>红果、抖音、快手三端</span></a>
+          <a class="cat-card" href="/#recommend"><strong>二轮跟播剧</strong><span>首播后30—90天重上星</span></a>
+        </div>
+      </section>
+
+      <!-- 5 深度解析（唯一主体阅读区） -->
+      <section class="section" id="analysis">
+        <div class="analysis">
+          <h2>深度解析：免费追剧真正的瓶颈在“窗口”，不在剧好不好看</h2>
+          <p>剧集能不能免费看，决定权通常不在观众手里，而在版权方与平台签的窗口期。11月这一周的样本里，同一部《雾港来信》在芒果TV限免2集、在湖南卫视金鹰剧场23:10重播，两处都能看，但规则不同。把窗口拆开看，判断会清楚很多。</p>
+
+          <h3>一、三集免费是常态，第四集起才是分水岭</h3>
+          <p>统计11月1日至7日上线的31部长剧，其中24部在首周给出“第1集免费，第2—3集会员”或“前2集免费”。比例接近77%。真正把第4集以后也放开的，只有《雾港来信》（限时到11月8日00:00）与《城中村三十七号》（央视频限免3集）。<strong>前3集免费更接近试看设计，不是长期免费库。</strong>理由是第3集往往承担第一个小高潮，平台在这里切断，转化率最高。</p>
+          <div class="quote-card">
+            “第9—10集免费是临时决定，因为原定11月9日的会员专享提前了。”
+            <cite>——芒果TV《雾港来信》页面更新说明，2026年11月7日 22:18</cite>
+          </div>
+
+          <h3>二、清晰度是可核对的变量，1080P免费不等于完整体验</h3>
+          <p>同一集免费，画质可能不同。11月5日腾讯视频把《长安十二时》第1集从标清切到1080P，但第2集起仍是会员专属；优酷《渡口书店》第7集的免费版只有标清，1080P锁在会员里。对设备要求不高的观众，标清够用；用平板或电视投屏，标清的字幕边缘明显发虚。这条可以自己核对：打开播放器右上角的清晰度菜单，看“1080P”是否带会员标识。</p>
+          <div class="table-wrap">
+            <table>
+              <caption style="text-align:left;font-size:.8rem;color:var(--muted);padding:8px 12px">11月7日抽样：同一集免费状态对照</caption>
+              <thead>
+                <tr><th>剧集</th><th>平台</th><th>免费集数</th><th>免费画质</th><th>关窗时间</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>雾港来信</td><td>芒果TV</td><td>第9—10集</td><td class="ok">1080P</td><td>11月8日 00:00</td></tr>
+                <tr><td>长安十二时</td><td>腾讯视频</td><td>第1集</td><td class="ok">1080P</td><td>未标注</td></tr>
+                <tr><td>渡口书店</td><td>优酷</td><td>第7集</td><td class="no">标清</td><td>未标注</td></tr>
+                <tr><td>城中村三十七号</td><td>央视频</td><td>第1—3集</td><td class="ok">高清</td><td>回看7天</td></tr>
+                <tr><td>山崖上的快递站</td><td>红果短剧</td><td>全40集</td><td class="no">540P带广告</td><td>长期</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>三、微短剧的“整季免费”有代价：广告位就是收费口</h3>
+          <p>《山崖上的快递站》40集全部免费，但前12集不能跳过贴片，第13集起要看15秒广告才能解锁下一集。按单集2分10秒算，看完40集正片约87分钟，广告累计约9分钟。这跟长剧的会员费不是同一笔账。判断方法是数一集里广告出现的位置：片头、片中、片尾各有几段。红果短剧这一部是片头1段、片中1段，共2段。</p>
+
+          <h3>四、一条可反驳的判断：卫视跟播不是“免费替补”</h3>
+          <p>《城中村三十七号》在CCTV-8播出第14集，央视频同步限免前3集。有人把卫视跟播当成会员剧的免费替代，但两处内容并不完全等同：卫视版为43分钟，平台版46分钟，删减集中在第9集的城中村拆迁会议。想看完整段落的，卫视不是替补，反而少了3分钟。这条判断可被证伪——拿两版第9集对时间轴即可。</p>
+          <p><strong>把判断拆成可核对项：</strong>① 卫视版时长是否短于平台版；② 删减是否集中在会议、群戏；③ 片尾字幕是否出现“电视播出版”字样；④ 央视频限免集数是否只覆盖前3集；⑤ 回看窗口是否只有7天。五项里三项成立，就说明跟播版是另一条剪辑线，不能直接替代。</p>
+        </div>
+      </section>
+
+      <!-- 6 体验指南 -->
+      <section class="section" id="guide">
+        <div class="sec-head">
+          <h2>从零开始追一部免费剧的六步</h2>
+          <span class="note">按手机端操作顺序写</span>
+        </div>
+        <ol class="steps">
+          <li><strong>先确认是哪条发行线。</strong>看到《长安十二时》先查腾讯视频页面的“发行许可证”编号，再看是否标“先网后台”，两条线的免费集数不同。</li>
+          <li><strong>看免费集数而不是总集数。</strong>总集数18集不代表能看18集。页面顶部若写“第1集免费”，就只准备看第1集。</li>
+          <li><strong>核对清晰度菜单。</strong>点播放器右上角，标清、高清、1080P、臻彩，带皇冠图标的是会员档。</li>
+          <li><strong>记下关窗时间。</strong>《雾港来信》写的是11月8日00:00，过了这个点第9—10集会回到会员区。</li>
+          <li><strong>微短剧先数广告段。</strong>红果短剧一集2分10秒，片头1段、片中1段，两段各15秒；能接受再连看。</li>
+          <li><strong>缓存留底。</strong>已下载的集数在窗口关闭后通常仍可离线播放，但清理缓存后就没了，优酷《渡口书店》第7集已验证。</li>
+        </ol>
+      </section>
+
+      <!-- 7 FAQ -->
+      <section class="section" id="faq">
+        <div class="sec-head">
+          <h2>常见问题</h2>
+          <span class="note">按观众实际提问整理</span>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>《雾港来信》第9集免费到什么时候？</summary>
+            <div class="ans">芒果TV页面标注11月8日00:00关窗，第9—10集在关窗后回到会员区。已缓存到本地的集数仍可离线看，但只限当前登录设备。</div>
+          </details>
+          <details>
+            <summary>《长安十二时》第2集为什么突然要会员？</summary>
+            <div class="ans">腾讯视频对这部剧采用“首集免费试看”策略，第2集起为会员专享。11月5日只把第1集清晰度从标清升到1080P，没有扩大免费集数。</div>
+          </details>
+          <details>
+            <summary>横屏微短剧整季免费，广告能跳过吗？</summary>
+            <div class="ans">《山崖上的快递站》前12集不能跳过贴片，第13集起需看15秒广告解锁下一集。片头、片中各1段，单集累计约30秒广告。</div>
+          </details>
+          <details>
+            <summary>卫视跟播版和平台版差在哪里？</summary>
+            <div class="ans">《城中村三十七号》卫视版第9集43分钟，平台版46分钟，差在拆迁会议一段。片尾字幕出现“电视播出版”，说明是另一条剪辑线。</div>
+          </details>
+          <details>
+            <summary>免费窗口关闭后，下载的剧还能看吗？</summary>
+            <div class="ans">优酷《渡口书店》第7集在窗口关闭后，已下载文件仍可离线播放；一旦清理应用缓存或换设备登录，就需要重新获得权限。</div>
+          </details>
+          <details>
+            <summary>央视频限免3集，回看只有7天怎么算？</summary>
+            <div class="ans">从CCTV-8播出当晚19:30起算，第14集回看保留到11月12日19:30。限免的1—3集与回看是两条规则，不要混在一起算。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8 用户评论 -->
+      <section class="section" id="talk">
+        <div class="sec-head">
+          <h2>观众评论：夸的和骂的都指到具体集</h2>
+          <span class="note">内容为示例生成，不代表真实用户</span>
+        </div>
+        <div class="comment-grid">
+          <div class="comment">
+            <div class="who"><span class="avatar">林</span><b>林间看剧</b>·11月7日</div>
+            <p><mark>《雾港来信》第9集</mark>海关那段节奏终于对了，前8集在码头绕太久。限免两集刚好够看这个转折。</p>
+          </div>
+          <div class="comment">
+            <div class="who"><span class="avatar">周</span><b>周末不加班</b>·11月6日</div>
+            <p>《城中村三十七号》第9集卫视版少3分钟，拆迁会议直接切走，看得我一头雾水，又回去平台版补。</p>
+          </div>
+          <div class="comment">
+            <div class="who"><span class="avatar">陈</span><b>陈皮话梅</b>·11月6日</div>
+            <p>说句不好听的，《山崖上的快递站》前12集每集两段广告，40集看下来广告比剧情还密。免费是免费，时间也是钱。</p>
+          </div>
+          <div class="comment">
+            <div class="who"><span class="avatar">吴</span><b>吴桐树下</b>·11月5日</div>
+            <p>《长安十二时》第1集切1080P后，服化道细节清楚多了。可惜第2集就要会员，试看窗口卡得有点准。</p>
+          </div>
+          <div class="comment">
+            <div class="who"><span class="avatar">何</span><b>何同学</b>·11月4日</div>
+            <p>《渡口书店》第7集免费只有标清，字幕边缘糊。投屏到电视更明显，最后还是没看下去。</p>
+          </div>
+          <div class="comment">
+            <div class="who"><span class="avatar">赵</span><b>赵家老二</b>·11月3日</div>
+            <p>央视频限免3集这件事，页面上写得很小，翻了半天才找到入口。回看7天这个提示也不显眼。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9 相关资讯 -->
+      <section class="section" id="news">
+        <div class="sec-head">
+          <h2>相关资讯</h2>
+          <span class="note">与更新动态不重复，偏平台规则</span>
+        </div>
+        <ul class="tight-list">
+          <li><span class="t"><b>芒果TV</b>11月起把“限时免费”标签统一改成倒计时样式，页面右上角显示剩余小时数。</span><span class="d">11月6日</span></li>
+          <li><span class="t"><b>腾讯视频</b>“首集免费”剧集新增清晰度说明，标清与1080P分开标注，避免误认。</span><span class="d">11月4日</span></li>
+          <li><span class="t"><b>红果短剧</b>上线“广告段预览”，单集页可先看广告位置再播放。</span><span class="d">11月2日</span></li>
+          <li><span class="t"><b>央视频</b>电视剧回看入口从二级页移到首页频道条，7天窗口不变。</span><span class="d">11月1日</span></li>
+        </ul>
+      </section>
+
+      <!-- 10 相关推荐 -->
+      <section class="section" id="recommend">
+        <div class="sec-head">
+          <h2>相关推荐</h2>
+          <span class="note">按你搜过的剧名延伸</span>
+        </div>
+        <div class="rec-tags">
+          <a href="/#analysis">雾港来信免费集数</a>
+          <a href="/#guide">长安十二时首集免费</a>
+          <a href="/#latest">城中村三十七号央视频限免</a>
+          <a href="/#guide">山崖上的快递站广告多吗</a>
+          <a href="/#faq">渡口书店第7集标清</a>
+          <a href="/#news">芒果TV限免倒计时</a>
+          <a href="/#channels">横屏微短剧整季免费</a>
+          <a href="/#channels">先网后台剧怎么看</a>
+          <a href="/#faq">免费窗口关了还能看吗</a>
+        </div>
+      </section>
+
+      <!-- 11 榜单 -->
+      <section class="section" id="rank">
+        <div class="sec-head">
+          <h2>本周免费可看指数榜</h2>
+          <span class="note">按免费集数 ÷ 总集数 × 清晰度系数算，均为示例</span>
+        </div>
+        <ol class="rank-list">
+          <li><span class="rank-num">1</span><span class="rname">山崖上的快递站<span>40集全免 · 广告较多</span></span><span class="rval">100%</span></li>
+          <li><span class="rank-num">2</span><span class="rname">城中村三十七号<span>限免3/14集 · 高清</span></span><span class="rval">21%</span></li>
+          <li><span class="rank-num">3</span><span class="rname">雾港来信<span>限免2/10集 · 1080P</span></span><span class="rval">20%</span></li>
+          <li><span class="rank-num">4</span><span class="rname">渡口书店<span>限免1/9集 · 标清</span></span><span class="rval">8%</span></li>
+          <li><span class="rank-num">5</span><span class="rname">长安十二时<span>限免1/18集 · 1080P</span></span><span class="rval">6%</span></li>
+        </ol>
+      </section>
+
+    </div>
+
+    <!-- 侧栏：DOM 中在主体之后，视觉同序 -->
+    <aside class="side" aria-label="侧边导航与提示">
+      <h2>本页目录</h2>
+      <ul class="side-nav" id="sideNav">
+        <li><a href="/#overview">领域概览</a></li>
+        <li><a href="/#picks">精选片单</a></li>
+        <li><a href="/#latest">更新动态</a></li>
+        <li><a href="/#channels">分类入口</a></li>
+        <li><a href="/#analysis">深度解析</a></li>
+        <li><a href="/#guide">观看指南</a></li>
+        <li><a href="/#faq">常见问题</a></li>
+        <li><a href="/#talk">观众评论</a></li>
+        <li><a href="/#news">相关资讯</a></li>
+        <li><a href="/#recommend">相关推荐</a></li>
+        <li><a href="/#rank">免费指数榜</a></li>
+      </ul>
+      <div class="side-box">
+        <h2>今晚可核对的三件事</h2>
+        <ul style="list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:.84rem;color:var(--ink-soft)">
+          <li>① 《雾港来信》第9集播放页是否仍显示“免费”标签。</li>
+          <li>② 央视频第14集回看倒计时是否还剩5天。</li>
+          <li>③ 优酷《渡口书店》第7集清晰度菜单里1080P是否带皇冠。</li>
+        </ul>
+      </div>
+      <div class="side-box">
+        <h2>记录口径</h2>
+        <p style="font-size:.82rem;color:var(--muted);margin:0">集数以平台播放页为准，时间取北京时间。示例条目每48小时复核一次，撤窗即改标。</p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg viewBox="0 0 40 40" role="img" aria-hidden="true">
+            <rect x="1" y="1" width="38" height="38" rx="10" fill="#f0b429"/>
+            <path d="M16 12.5l12 7.5-12 7.5z" fill="#12383a"/>
+            <circle cx="12" cy="20" r="2.4" fill="#12383a"/>
+          </svg>
+          <span class="name">寻剧吧免费追剧</span>
+        </div>
+        <p>把限免窗口、集数与清晰度写成能核对的记录，观众自己判断值不值得花时间。</p>
+      </div>
+      <div>
+        <h3>栏目</h3>
+        <ul>
+          <li><a href="/#picks">精选片单</a></li>
+          <li><a href="/#latest">更新动态</a></li>
+          <li><a href="/#analysis">深度解析</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>查找</h3>
+        <ul>
+          <li><a href="/#channels">分类入口</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#rank">免费指数榜</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>互动</h3>
+        <ul>
+          <li><a href="/#talk">观众评论</a></li>
+          <li><a href="/#recommend">相关推荐</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-meta">
+      <span>剧集条目、评论与榜单均为示例数据，用于演示免费窗口的记录方式；更新时间 2026-11-08。</span>
+      <span>© 2026 寻剧吧免费追剧 · 内容整理示例</span>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" type="button" aria-label="回到顶部">↑ 顶部</button>
+
+<script>
+(function(){
+  var menuToggle=document.getElementById('menuToggle');
+  var mainNav=document.getElementById('mainNav');
+  if(menuToggle&&mainNav){
+    menuToggle.addEventListener('click',function(){
+      var open=mainNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded',open?'true':'false');
+    });
+    mainNav.addEventListener('click',function(e){
+      if(e.target.tagName==='A'&&window.innerWidth<=760){
+        mainNav.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  var links=document.querySelectorAll('#sideNav a');
+  var sections=[].map.call(document.querySelectorAll('main section[id]'),function(s){return s;});
+  function highlight(){
+    var pos=window.scrollY+140;
+    var current='';
+    sections.forEach(function(s){ if(s.offsetTop<=pos) current=s.id; });
+    links.forEach(function(a){
+      var href=a.getAttribute('href')||'';
+      a.classList.toggle('active',href==='#'+current||href==='stack'+current);
+    });
+  }
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(){
+      var pos=window.scrollY+140,current='';
+      sections.forEach(function(s){ if(s.offsetTop<=pos) current=s.id; });
+      links.forEach(function(a){
+        var href=(a.getAttribute('href')||'').replace('/#','');
+        a.classList.toggle('active',href===current);
+      });
+    },{rootMargin:'0px 0px -70% 0px',threshold:0});
+    sections.forEach(function(s){obs.observe(s);});
+  }
+  window.addEventListener('scroll',highlight,{passive:true});
+  highlight();
+
+  var toTop=document.getElementById('toTop');
+  function toggleTop(){
+    if(window.scrollY>520){toTop.classList.add('show');}
+    else{toTop.classList.remove('show');}
+  }
+  window.addEventListener('scroll',toggleTop,{passive:true});
+  toggleTop();
+  toTop.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  var form=document.getElementById('searchForm');
+  var input=document.getElementById('siteSearch');
+  var feedback=document.getElementById('searchFeedback');
+  if(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var q=(input.value||'').trim().toLowerCase();
+      if(!q){
+        feedback.textContent='请输入剧名、平台或类型，例如“雾港来信”“芒果TV”“微短剧”。';
+        feedback.classList.add('show');
+        return;
+      }
+      var cards=[].slice.call(document.querySelectorAll('#picks .card, #latest li, #channels .cat-card, #faq details, #talk .comment, #recommend a, #rank li'));
+      var hits=cards.filter(function(el){
+        return (el.textContent||'').toLowerCase().indexOf(q)>-1;
+      });
+      cards.forEach(function(el){ el.style.outline=''; });
+      if(hits.length===0){
+        feedback.textContent='没有找到与“'+input.value.trim()+'”匹配的条目。试试换剧名关键词，或从“分类入口”里按类型挑。';
+        feedback.classList.add('show');
+      }else{
+        feedback.textContent='找到 '+hits.length+' 条与“'+input.value.trim()+'”相关的内容，已在下方标出。';
+        feedback.classList.add('show');
+        hits.forEach(function(el){ el.style.outline='2px solid #f0b429'; el.style.outlineOffset='2px'; });
+        if(hits[0].scrollIntoView){hits[0].scrollIntoView({behavior:'smooth',block:'center'});}
+      }
+    });
+    input.addEventListener('input',function(){
+      if(!input.value){feedback.classList.remove('show');}
+    });
+  }
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"寻剧吧免费追剧",
+  "description":"整理国产剧、悬疑剧、古装剧与横屏微短剧的免费观看窗口，标注平台、更新集数、清晰度与关窗时间。",
+  "inLanguage":"zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"《雾港来信》第9集免费到什么时候？","acceptedAnswer":{"@type":"Answer","text":"芒果TV页面标注11月8日00:00关窗，第9—10集在关窗后回到会员区。已缓存到本地的集数仍可离线看，但只限当前登录设备。"}},
+    {"@type":"Question","name":"《长安十二时》第2集为什么突然要会员？","acceptedAnswer":{"@type":"Answer","text":"腾讯视频对这部剧采用首集免费试看策略，第2集起为会员专享。11月5日只把第1集清晰度从标清升到1080P，没有扩大免费集数。"}},
+    {"@type":"Question","name":"横屏微短剧整季免费，广告能跳过吗？","acceptedAnswer":{"@type":"Answer","text":"《山崖上的快递站》前12集不能跳过贴片，第13集起需看15秒广告解锁下一集。片头、片中各1段，单集累计约30秒广告。"}},
+    {"@type":"Question","name":"卫视跟播版和平台版差在哪里？","acceptedAnswer":{"@type":"Answer","text":"《城中村三十七号》卫视版第9集43分钟，平台版46分钟，差在拆迁会议一段。片尾字幕出现电视播出版，说明是另一条剪辑线。"}},
+    {"@type":"Question","name":"免费窗口关闭后，下载的剧还能看吗？","acceptedAnswer":{"@type":"Answer","text":"优酷《渡口书店》第7集在窗口关闭后，已下载文件仍可离线播放；一旦清理应用缓存或换设备登录，就需要重新获得权限。"}},
+    {"@type":"Question","name":"央视频限免3集，回看只有7天怎么算？","acceptedAnswer":{"@type":"Answer","text":"从CCTV-8播出当晚19:30起算，第14集回看保留到11月12日19:30。限免的1—3集与回看是两条规则，不要混在一起算。"}}
+  ]
+}
+</script>
+</body>
+  </html>
