@@ -1,0 +1,1193 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jxx.cc.8888-数字资源索引与版本追踪站</title>
+<meta name="description" content="jxx.cc.8888 是一个面向数字资源收藏者的索引与版本追踪站，整理工具镜像、文档修订、社区讨论与下载校验信息，提供条目评级、更新日志与可核对的时间线，帮助读者判断资源是否值得收藏。">
+<meta name="keywords" content="jxx.cc.8888">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d2b3a'/%3E%3Cpath d='M16 46V18h8v11h16V18h8v28h-8V36H24v10z' fill='%23e8b04b'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1d2b3a;
+  --ink-2:#3a4c5e;
+  --ink-3:#67788a;
+  --paper:#f6f4ef;
+  --card:#ffffff;
+  --line:#dcd7cc;
+  --line-soft:#eae6dc;
+  --gold:#b4761a;
+  --gold-soft:#f3e5c8;
+  --teal:#2d6f6a;
+  --teal-soft:#dcece9;
+  --red:#a63a2e;
+  --red-soft:#f5e0dc;
+  --radius:10px;
+  --radius-sm:6px;
+  --shadow:0 2px 6px rgba(29,43,58,.07),0 10px 26px rgba(29,43,58,.06);
+  --shadow-sm:0 1px 3px rgba(29,43,58,.08);
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ann-h:38px;
+  --head-h:62px;
+  --gap:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--ann-h) + var(--head-h) + 14px)}
+body{
+  margin:0;
+  font-family:var(--font);
+  background:var(--paper);
+  color:var(--ink);
+  font-size:15.5px;
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--teal);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{margin:0;line-height:1.35;letter-spacing:.01em}
+p{margin:0 0 .85em}
+ul,ol{margin:0 0 .9em;padding-left:1.3em}
+li{margin-bottom:.35em}
+button{font-family:inherit}
+
+/* ---------- 吸顶区 ---------- */
+.sticky-shell{position:sticky;top:0;z-index:60}
+.announce{
+  height:var(--ann-h);
+  display:flex;align-items:center;gap:12px;
+  padding:0 20px;
+  background:var(--ink);
+  color:#e9e4d8;
+  font-size:12.5px;
+  letter-spacing:.02em;
+  overflow:hidden;
+  white-space:nowrap;
+}
+.announce .tag{
+  flex:none;
+  background:var(--gold);
+  color:#1d2b3a;
+  font-weight:700;
+  padding:2px 8px;
+  border-radius:3px;
+  font-size:11.5px;
+}
+.announce .a-text{overflow:hidden;text-overflow:ellipsis}
+.announce .a-time{flex:none;margin-left:auto;color:#a9b4bf;font-variant-numeric:tabular-nums}
+.site-head{
+  height:var(--head-h);
+  display:flex;align-items:center;gap:16px;
+  padding:0 20px;
+  background:rgba(246,244,239,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.brand{display:flex;align-items:center;gap:9px;flex:none}
+.brand svg{display:block}
+.brand-name{font-size:19px;font-weight:800;color:var(--ink);letter-spacing:.01em}
+.nav-main{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none}
+.nav-main::-webkit-scrollbar{display:none}
+.nav-main a{
+  color:var(--ink-2);
+  padding:7px 11px;
+  border-radius:var(--radius-sm);
+  font-size:14px;
+  white-space:nowrap;
+  transition:background .18s,color .18s;
+}
+.nav-main a:hover{background:var(--line-soft);text-decoration:none}
+.nav-main a.active{color:var(--gold);background:var(--gold-soft);font-weight:600}
+.head-tools{display:flex;align-items:center;gap:10px;margin-left:auto;flex:none}
+.search-wrap{position:relative}
+.search-wrap input{
+  width:190px;
+  padding:7px 10px 7px 30px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:#fff;
+  font-size:13.5px;
+  color:var(--ink);
+  transition:border-color .18s,width .18s;
+}
+.search-wrap input:focus{outline:none;border-color:var(--teal);width:225px}
+.search-wrap .ico{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--ink-3);pointer-events:none}
+.search-feedback{
+  position:absolute;top:calc(100% + 8px);right:0;
+  width:280px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:10px 12px;font-size:13px;color:var(--ink-2);display:none;
+}
+.search-feedback.show{display:block}
+.search-feedback strong{color:var(--red)}
+.btn{
+  display:inline-flex;align-items:center;gap:6px;
+  border:1px solid var(--line);
+  background:#fff;color:var(--ink);
+  padding:7px 14px;border-radius:20px;
+  font-size:13.5px;cursor:pointer;
+  transition:transform .16s,box-shadow .16s,border-color .16s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm);border-color:var(--ink-3);text-decoration:none}
+.btn-primary{background:var(--ink);color:#f3efe4;border-color:var(--ink)}
+.btn-primary:hover{background:#111f2c}
+.menu-btn{display:none;background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 9px;cursor:pointer}
+.menu-btn:focus-visible,.nav-main a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+/* ---------- 布局 ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 300px;
+  gap:var(--gap);
+  padding:26px 0 40px;
+  align-items:start;
+}
+.main-col{min-width:0}
+.side-col{
+  position:sticky;
+  top:calc(var(--ann-h) + var(--head-h) + 14px);
+  display:flex;flex-direction:column;gap:var(--gap);
+}
+
+/* ---------- 首屏 ---------- */
+.hero{
+  background:linear-gradient(150deg,#1d2b3a 0%,#263a4d 55%,#2c4a52 100%);
+  color:#f1ede2;
+  padding:38px 0 34px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-inner{
+  max-width:1180px;margin:0 auto;padding:0 20px;
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:34px;align-items:center;position:relative;z-index:2;
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;letter-spacing:.14em;color:#d9b46a;
+  border:1px solid rgba(217,180,106,.45);
+  padding:3px 10px;border-radius:20px;margin-bottom:14px;
+}
+.hero h1{font-size:37px;font-weight:800;letter-spacing:.01em;margin-bottom:12px;color:#fff}
+.hero-lead{font-size:15.5px;color:#c7cfd6;max-width:33em;margin-bottom:20px}
+.hero-lead b{color:#ecd399;font-weight:600}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+.hero-actions .btn{background:transparent;border-color:rgba(241,237,226,.32);color:#f1ede2}
+.hero-actions .btn:hover{background:rgba(241,237,226,.1)}
+.hero-actions .btn-primary{background:#e8b04b;border-color:#e8b04b;color:#1d2b3a;font-weight:700}
+.hero-actions .btn-primary:hover{background:#f0bf63}
+.hero-stats{display:flex;gap:26px;flex-wrap:wrap}
+.hero-stats div{font-size:12.5px;color:#9fb0be}
+.hero-stats strong{display:block;font-size:22px;color:#fff;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.3}
+.hero-visual{position:relative}
+.hero-visual svg{width:100%;height:auto;display:block}
+
+/* ---------- 通用板块 ---------- */
+.section{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:22px 24px;
+  margin-bottom:var(--gap);
+  box-shadow:var(--shadow-sm);
+}
+.sec-head{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.sec-head h2{font-size:21px;font-weight:750;color:var(--ink)}
+.sec-head .sec-note{font-size:12.5px;color:var(--ink-3);margin-left:auto;white-space:nowrap}
+.sec-head .bar{width:26px;height:3px;background:var(--gold);border-radius:2px;margin-bottom:5px}
+.muted{color:var(--ink-3)}
+.small{font-size:12.5px}
+.tag-set{display:flex;flex-wrap:wrap;gap:8px}
+.tag{
+  display:inline-block;
+  font-size:12.5px;
+  padding:4px 10px;
+  border-radius:20px;
+  background:var(--line-soft);
+  color:var(--ink-2);
+  border:1px solid transparent;
+  transition:background .16s,border-color .16s;
+}
+.tag:hover{background:var(--gold-soft);border-color:#e3c98c;text-decoration:none;color:#7a5111}
+.tag.gold{background:var(--gold-soft);color:#7a5111}
+.tag.teal{background:var(--teal-soft);color:#1f5551}
+.tag.red{background:var(--red-soft);color:#82302a}
+
+/* ---------- 领域概览：标签索引 + 定义 ---------- */
+.overview-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+.def-list{display:flex;flex-direction:column;gap:10px}
+.def-item{
+  border-left:3px solid var(--gold);
+  background:#fbfaf6;
+  padding:9px 12px;
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+}
+.def-item strong{display:block;font-size:14px;color:var(--ink)}
+.def-item span{font-size:13px;color:var(--ink-3)}
+.term-cloud{display:flex;flex-wrap:wrap;gap:7px;align-content:flex-start}
+.term-cloud .tag{font-size:12.5px}
+
+/* ---------- 精选内容推荐：网格卡片 ---------- */
+.pick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{
+  border:1px solid var(--line-soft);
+  border-radius:var(--radius-sm);
+  background:#fff;
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:transform .18s,box-shadow .18s,border-color .18s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--line)}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;background:#e6e2d8}
+.card-body{padding:12px 13px 14px}
+.card-body h3{font-size:15px;font-weight:700;margin-bottom:6px}
+.card-body p{font-size:13px;color:var(--ink-2);margin-bottom:8px}
+.card-meta{font-size:11.5px;color:var(--ink-3);display:flex;gap:8px;flex-wrap:wrap}
+
+/* ---------- 最新更新：紧凑列表 ---------- */
+.upd-list{display:flex;flex-direction:column}
+.upd-item{
+  display:grid;
+  grid-template-columns:92px minmax(0,1fr) auto;
+  gap:12px;
+  align-items:baseline;
+  padding:10px 0;
+  border-bottom:1px dashed var(--line-soft);
+  font-size:14px;
+}
+.upd-item:last-child{border-bottom:0}
+.upd-item time{font-size:12.5px;color:var(--gold);font-variant-numeric:tabular-nums;white-space:nowrap}
+.upd-item .u-main b{font-weight:650}
+.upd-item .u-main span{color:var(--ink-3);font-size:12.5px;display:block;margin-top:1px}
+.upd-item .u-ver{font-size:12px;color:var(--teal);background:var(--teal-soft);padding:2px 7px;border-radius:4px;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* ---------- 分类入口 ---------- */
+.cat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}
+.cat-item{
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  padding:12px 13px;
+  background:#fbfaf6;
+  transition:border-color .16s,background .16s,transform .16s;
+}
+.cat-item:hover{border-color:var(--gold);background:#fff;transform:translateY(-2px);text-decoration:none}
+.cat-item strong{display:block;font-size:14px;color:var(--ink);margin-bottom:2px}
+.cat-item span{font-size:12px;color:var(--ink-3)}
+.cat-item em{display:block;font-style:normal;font-size:11.5px;color:var(--gold);margin-top:6px;font-variant-numeric:tabular-nums}
+
+/* ---------- 深度解析：分栏正文 ---------- */
+.deep{border-left:3px solid var(--teal);padding-left:0}
+.deep-article h3{font-size:16.5px;margin:20px 0 8px;color:var(--ink);font-weight:730}
+.deep-article h3:first-child{margin-top:0}
+.deep-article p{font-size:14.5px;color:var(--ink-2)}
+.deep-article .lead-p{font-size:15px;color:var(--ink)}
+.check-panel{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;
+  margin:14px 0 6px;
+}
+.check-cell{
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  padding:10px 12px;
+  background:#fbfaf6;
+}
+.check-cell b{display:block;font-size:13px;color:var(--ink)}
+.check-cell span{font-size:12.5px;color:var(--ink-3)}
+.quote-card{
+  margin:14px 0;
+  background:var(--gold-soft);
+  border-radius:var(--radius-sm);
+  padding:13px 16px;
+  font-size:14px;
+  color:#6c4a12;
+  border-left:3px solid var(--gold);
+}
+.quote-card cite{font-style:normal;display:block;margin-top:6px;font-size:12px;color:#8a6a2c}
+
+/* ---------- 体验指南：编号步骤 ---------- */
+.steps{counter-reset:step;list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+.steps li{
+  counter-increment:step;
+  display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;
+  font-size:14px;
+}
+.steps li::before{
+  content:counter(step);
+  width:30px;height:30px;border-radius:50%;
+  background:var(--ink);color:#f0e9d6;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:13.5px;
+  grid-row:span 2;
+}
+.steps li b{font-weight:650}
+.steps li span{color:var(--ink-3);font-size:13px;grid-column:2}
+
+/* ---------- 对照面板 ---------- */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden}
+.compare > div{padding:14px 16px;font-size:13.5px}
+.compare .c-left{background:#fbfaf6;border-right:1px solid var(--line)}
+.compare .c-right{background:#fff}
+.compare h4{font-size:14px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.compare ul{margin:0;padding-left:1.1em}
+.compare li{margin-bottom:5px;color:var(--ink-2)}
+
+/* ---------- FAQ ---------- */
+.faq-item{border-bottom:1px solid var(--line-soft);padding:2px 0}
+.faq-item:last-child{border-bottom:0}
+.faq-item summary{
+  cursor:pointer;
+  padding:12px 0;
+  font-weight:650;
+  font-size:14.5px;
+  list-style:none;
+  display:flex;justify-content:space-between;gap:12px;align-items:center;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"＋";color:var(--gold);font-weight:400;font-size:17px;flex:none}
+.faq-item[open] summary::after{content:"－"}
+.faq-item .ans{padding:0 0 13px;font-size:14px;color:var(--ink-2);max-width:62em}
+
+/* ---------- 评论 ---------- */
+.cmt-list{display:flex;flex-direction:column;gap:12px}
+.cmt{
+  display:grid;grid-template-columns:38px minmax(0,1fr);gap:11px;
+  padding:12px 14px;
+  border:1px solid var(--line-soft);
+  border-radius:var(--radius-sm);
+  background:#fbfaf6;
+}
+.cmt-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--teal-soft);color:#1f5551;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:14px;
+}
+.cmt-head{display:flex;gap:9px;align-items:baseline;flex-wrap:wrap;font-size:12.5px;color:var(--ink-3);margin-bottom:3px}
+.cmt-head b{color:var(--ink);font-size:13.5px}
+.cmt-head .stars{color:var(--gold);letter-spacing:1px}
+.cmt p{font-size:13.8px;margin:0;color:var(--ink-2)}
+
+/* ---------- 相关资讯 ---------- */
+.news-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.news-item{
+  border:1px solid var(--line-soft);
+  border-radius:var(--radius-sm);
+  padding:11px 13px;
+  background:#fff;
+  transition:border-color .16s,transform .16s;
+}
+.news-item:hover{border-color:var(--line);transform:translateY(-2px)}
+.news-item time{font-size:11.5px;color:var(--gold);font-variant-numeric:tabular-nums}
+.news-item strong{display:block;font-size:14px;margin:3px 0 2px;color:var(--ink)}
+.news-item span{font-size:12.5px;color:var(--ink-3)}
+
+/* ---------- 榜单 / 时间线 ---------- */
+.rank-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px}
+.rank-list li{display:grid;grid-template-columns:26px minmax(0,1fr) auto;gap:10px;align-items:center;font-size:14px}
+.rank-list .rk{font-weight:800;color:var(--gold);font-variant-numeric:tabular-nums;text-align:center}
+.rank-list .rk.top{color:var(--red)}
+.rank-list .score{font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+.timeline{list-style:none;padding:0;margin:0;border-left:2px solid var(--line);}
+.timeline li{position:relative;padding:0 0 15px 18px;font-size:13.8px}
+.timeline li::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--paper)}
+.timeline time{font-size:12px;color:var(--gold);display:block;font-variant-numeric:tabular-nums}
+.timeline b{font-weight:650}
+.timeline span{color:var(--ink-3)}
+
+/* ---------- 侧栏 ---------- */
+.side-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:15px 16px;
+  box-shadow:var(--shadow-sm);
+}
+.side-card h2{font-size:15px;margin-bottom:11px;color:var(--ink);display:flex;align-items:center;gap:7px}
+.side-card h2::before{content:"";width:3px;height:14px;background:var(--gold);border-radius:2px}
+.side-nav{display:flex;flex-direction:column;gap:1px}
+.side-nav a{
+  font-size:13.5px;color:var(--ink-2);
+  padding:6px 9px;border-radius:5px;
+  border-left:2px solid transparent;
+  transition:background .15s,color .15s,border-color .15s;
+}
+.side-nav a:hover{background:var(--line-soft);text-decoration:none}
+.side-nav a.active{color:var(--gold);border-left-color:var(--gold);background:var(--gold-soft);font-weight:600}
+.side-note{font-size:12.5px;color:var(--ink-3);margin-top:9px}
+.creator{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ink-2)}
+.creator .cmt-avatar{flex:none}
+.back-top{
+  position:fixed;right:20px;bottom:22px;z-index:80;
+  width:42px;height:42px;border-radius:50%;
+  background:var(--ink);color:#f1ede2;border:0;
+  display:none;align-items:center;justify-content:center;
+  cursor:pointer;box-shadow:var(--shadow);
+  transition:transform .16s,background .16s;
+}
+.back-top.show{display:flex}
+.back-top:hover{transform:translateY(-3px);background:#111f2c}
+
+/* ---------- 页尾 ---------- */
+.site-foot{background:#1a2733;color:#b9c4ce;font-size:13px;padding:34px 0 22px;margin-top:10px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px;max-width:1180px;margin:0 auto;padding:0 20px}
+.site-foot h3{font-size:14px;color:#eef2f5;margin-bottom:9px;font-weight:650}
+.site-foot a{color:#b9c4ce;font-size:12.8px}
+.site-foot a:hover{color:#f0bf63;text-decoration:none}
+.foot-brand{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.foot-brand .brand-name{color:#eef2f5;font-size:17px}
+.foot-links{display:flex;flex-direction:column;gap:5px}
+.foot-pos{line-height:1.75;color:#9fb0be;font-size:12.8px;max-width:26em}
+.foot-bottom{max-width:1180px;margin:24px auto 0;padding:14px 20px 0;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:12px;color:#8b9aa7}
+.foot-bottom span{display:inline-block;margin-right:14px}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:1000px){
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .side-col{position:static;order:2}
+  .pick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cat-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hero-inner{grid-template-columns:1fr;gap:20px}
+  .hero-visual{max-width:420px}
+  .overview-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  :root{--ann-h:34px;--head-h:56px}
+  .nav-main{display:none}
+  .nav-main.open{
+    display:flex;
+    position:absolute;left:0;right:0;top:calc(var(--ann-h) + var(--head-h));
+    flex-direction:column;align-items:stretch;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    padding:8px 14px 14px;
+    box-shadow:var(--shadow);
+    max-height:70vh;overflow:auto;
+  }
+  .menu-btn{display:inline-flex;align-items:center;justify-content:center;margin-left:auto}
+  .head-tools{margin-left:0}
+  .search-wrap input{width:132px}
+  .search-wrap input:focus{width:160px}
+  .brand-name{font-size:17px}
+  .hero h1{font-size:29px}
+  .pick-grid{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:1fr 1fr}
+  .news-list{grid-template-columns:1fr}
+  .check-panel{grid-template-columns:1fr}
+  .compare{grid-template-columns:1fr}
+  .compare .c-left{border-right:0;border-bottom:1px solid var(--line)}
+  .upd-item{grid-template-columns:minmax(0,1fr) auto;gap:6px 10px}
+  .upd-item time{grid-column:1/-1}
+  .section{padding:18px 16px}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:20px}
+  .back-top{right:14px;bottom:16px;width:38px;height:38px}
+  .announce{padding:0 12px;font-size:11.5px}
+  .announce .a-time{display:none}
+}
+@media (max-width:420px){
+  .cat-grid{grid-template-columns:1fr}
+  .hero-stats{gap:16px}
+  .hero h1{font-size:25px}
+  .search-wrap input{width:108px}
+  .search-wrap input:focus{width:132px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  .card:hover,.cat-item:hover,.news-item:hover,.btn:hover,.back-top:hover{transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶：公告条 + 页头 -->
+<div class="sticky-shell">
+  <div class="announce" role="note" aria-label="站点更新公告">
+    <span class="tag">jxx.cc.8888</span>
+    <span class="a-text">索引库 v3.6 已上线：新增「文档修订对照」栏目，工具镜像条目补录 SHA-256 校验 214 条，旧版下载页已归档。</span>
+    <span class="a-time">2026-11-07 更新</span>
+  </div>
+  <header class="site-head">
+    <div class="brand">
+      <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1d2b3a"/>
+        <path d="M16 46V18h8v11h16V18h8v28h-8V36H24v10z" fill="#e8b04b"/>
+        <circle cx="50" cy="15" r="4" fill="#2d6f6a"/>
+      </svg>
+      <span class="brand-name">jxx.cc.8888</span>
+    </div>
+    <nav class="nav-main" id="mainNav" aria-label="主题导航">
+      <a href="/#overview">领域概览</a>
+      <a href="/#picks">精选推荐</a>
+      <a href="/#updates">最新更新</a>
+      <a href="/#categories">分类入口</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#comments">用户评论</a>
+      <a href="/#news">相关资讯</a>
+      <a href="/#ranks">收藏榜单</a>
+    </nav>
+    <div class="head-tools">
+      <div class="search-wrap">
+        <svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="search" id="siteSearch" placeholder="搜条目、版本、校验…" aria-label="站内搜索" autocomplete="off">
+        <div class="search-feedback" id="searchFeedback" role="status" aria-live="polite"></div>
+      </div>
+      <button class="btn btn-primary" type="button" id="quickJump">随机条目</button>
+      <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="mainNav" aria-label="打开导航菜单">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </header>
+</div>
+
+<!-- 首屏 -->
+<section class="hero" aria-labelledby="heroTitle">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-kicker">数字资源索引 · 版本追踪 · 校验留痕</span>
+      <h1 id="heroTitle">jxx.cc.8888</h1>
+      <p class="hero-lead">收录工具镜像、文档修订、社区讨论与下载校验四类条目，按发布日期和版本号建立可核对的时间线。当前索引 <b>1,284</b> 个条目，其中 <b>316</b> 条附带 SHA-256 或 MD5 校验记录，<b>57</b> 条标注为「作者已停更」。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/#picks">浏览精选条目</a>
+        <a class="btn" href="/#deep">读版本判断方法</a>
+        <a class="btn" href="/#guide">了解校验流程</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>1,284</strong>收录条目</div>
+        <div><strong>316</strong>带校验记录</div>
+        <div><strong>42</strong>本周新增修订</div>
+        <div><strong>9</strong>合作镜像站</div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 420 300" role="img">
+        <defs>
+          <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#e8b04b" stop-opacity=".22"/>
+            <stop offset="1" stop-color="#2d6f6a" stop-opacity=".16"/>
+          </linearGradient>
+        </defs>
+        <rect x="8" y="8" width="404" height="284" rx="16" fill="url(#hg)" stroke="#e8b04b" stroke-opacity=".4"/>
+        <g stroke="#e8b04b" stroke-opacity=".28" stroke-width="1">
+          <path d="M8 66h404M8 124h404M8 182h404M8 240h404"/>
+          <path d="M80 8v284M152 8v284M224 8v284M296 8v284M368 8v284"/>
+        </g>
+        <g fill="#f1ede2" font-family="PingFang SC, sans-serif">
+          <text x="28" y="44" font-size="13" opacity=".72">条目版本曲线 · 近 30 天</text>
+        </g>
+        <polyline points="28,214 92,196 156,204 220,166 284,150 348,112 392,96" fill="none" stroke="#e8b04b" stroke-width="2.5" stroke-linecap="round"/>
+        <g fill="#e8b04b">
+          <circle cx="28" cy="214" r="3.5"/><circle cx="92" cy="196" r="3.5"/><circle cx="156" cy="204" r="3.5"/>
+          <circle cx="220" cy="166" r="3.5"/><circle cx="284" cy="150" r="3.5"/><circle cx="348" cy="112" r="3.5"/><circle cx="392" cy="96" r="4.5"/>
+        </g>
+        <g font-family="PingFang SC, sans-serif" fill="#c7cfd6" font-size="11">
+          <text x="24" y="234">10-09</text>
+          <text x="150" y="234">10-19</text>
+          <text x="276" y="234">10-29</text>
+          <text x="366" y="234">11-07</text>
+        </g>
+        <rect x="252" y="196" width="146" height="62" rx="8" fill="#1d2b3a" stroke="#2d6f6a"/>
+        <g font-family="PingFang SC, sans-serif" fill="#dcece9" font-size="11.5">
+          <text x="264" y="216">sha256: 9f2c…a71d</text>
+          <text x="264" y="234" fill="#9fb0be">v3.6.2 · 11-05</text>
+          <text x="264" y="250" fill="#e8b04b">已核对 · 3 源一致</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="layout">
+    <!-- 主内容 -->
+    <main class="main-col">
+
+      <!-- 1 领域概览 -->
+      <section class="section" id="overview" aria-labelledby="h-overview">
+        <div class="sec-head"><span class="bar"></span><h2 id="h-overview">领域概览：数字资源索引的四类条目</h2><span class="sec-note">术语 14 个 · 10-20 整理</span></div>
+        <div class="overview-grid">
+          <div class="def-list">
+            <div class="def-item"><strong>工具镜像</strong><span>同一程序在不同镜像站的副本，需比对文件哈希与构建号，版本差一个补丁即可能改变依赖。</span></div>
+            <div class="def-item"><strong>文档修订</strong><span>官方手册或社区 Wiki 的 changelog 条目，按「修订号 + 日期」定位，旧版说明常与新行为冲突。</span></div>
+            <div class="def-item"><strong>社区讨论</strong><span>论坛帖、Issue、Issue 关联的 PR，价值在于复现步骤与维护者回复，不在赞同数。</span></div>
+            <div class="def-item"><strong>下载校验</strong><span>SHA-256、MD5、签名文件三类凭据。单有哈希不含来源说明时，只能证明文件一致，不能证明来源可信。</span></div>
+          </div>
+          <div>
+            <p class="small muted" style="margin-bottom:8px">高频领域词（点击可检索相关栏目）</p>
+            <div class="term-cloud">
+              <a class="tag gold" href="/#updates">构建号</a>
+              <a class="tag" href="/#updates">校验和</a>
+              <a class="tag teal" href="/#deep">版本回滚</a>
+              <a class="tag" href="/#categories">镜像同步</a>
+              <a class="tag" href="/#faq">附件签名</a>
+              <a class="tag" href="/#deep">依赖锁定</a>
+              <a class="tag gold" href="/#guide">离线包</a>
+              <a class="tag" href="/#news">归档页</a>
+              <a class="tag teal" href="/#deep">修订对照</a>
+              <a class="tag" href="/#comments">复现步骤</a>
+              <a class="tag" href="/#picks">发布说明</a>
+              <a class="tag" href="/#categories">源站限速</a>
+              <a class="tag" href="/#faq">哈希碰撞</a>
+              <a class="tag" href="/#ranks">收藏热度</a>
+            </div>
+            <p style="margin-top:12px;font-size:13.5px;color:var(--ink-2)">索引不托管文件，只记录「哪里能下、版本是多少、校验值是什么、谁在维护」。条目页的日期统一按 UTC+8 记录，跨时区发布需换算后再对照。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 精选内容推荐 -->
+      <section class="section" id="picks" aria-labelledby="h-picks">
+        <div class="sec-head"><span class="bar"></span><h2 id="h-picks">精选内容推荐：本周值得收藏的六个条目</h2><span class="sec-note">编辑初筛 + 校验复核</span></div>
+        <div class="pick-grid">
+          <article class="card">
+            <img src="https://picsum.photos/seed/jxx-mirror-toolkit/480/270" width="480" height="270" loading="lazy" alt="工具镜像同步流程图，左侧源站箭头指向三个镜像节点">
+            <div class="card-body">
+              <h3>工具镜像同步对照表 v3.6.2</h3>
+              <p>三个镜像站的构建号差 1 个补丁版本，附逐文件哈希比对结果。</p>
+              <div class="card-meta"><span>11-05</span><span>已核对</span><span>214 文件</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/jxx-doc-diff/480/270" width="480" height="270" loading="lazy" alt="文档修订对照截图，左右两栏用颜色标出改动段落">
+            <div class="card-body">
+              <h3>文档修订对照：10-28 与 11-03 两版差异</h3>
+              <p>命令行参数 <code>--strict</code> 默认值翻转，旧脚本会静默失败。</p>
+              <div class="card-meta"><span>11-03</span><span>差异 17 处</span><span>含原文引用</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/jxx-offline-pack/480/270" width="480" height="270" loading="lazy" alt="离线安装包目录结构，包含 bin、docs、checksums 三个文件夹">
+            <div class="card-body">
+              <h3>离线安装包校验清单（含签名文件）</h3>
+              <p>作者提供 detached 签名，公钥指纹与去年发布的一致。</p>
+              <div class="card-meta"><span>10-31</span><span>签名有效</span><span>42 MB</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/jxx-issue-thread/480/270" width="480" height="270" loading="lazy" alt="论坛 Issue 讨论串截图，维护者回复标注已修复">
+            <div class="card-body">
+              <h3>Issue #418 复现步骤整理</h3>
+              <p>Windows 10 22H2 下解压报错，与路径长度限制有关，维护者已回复。</p>
+              <div class="card-meta"><span>10-30</span><span>已修复</span><span>回复 9 条</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/jxx-archive-page/480/270" width="480" height="270" loading="lazy" alt="归档页时间轴，旧版本按年份分组排列">
+            <div class="card-body">
+              <h3>旧版下载页归档索引（2019—2025）</h3>
+              <p>七个年份的发布记录，标注哪些链接仍在、哪些已返回 404。</p>
+              <div class="card-meta"><span>10-27</span><span>7 年跨度</span><span>含失效标记</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/jxx-changelog/480/270" width="480" height="270" loading="lazy" alt="更新日志手写标注，几行版本号旁边写着兼容性疑问">
+            <div class="card-body">
+              <h3>发布说明里的兼容性措辞比对</h3>
+              <p>「向后兼容」出现在 3 个版本说明中，实际行为存在两处差异。</p>
+              <div class="card-meta"><span>11-01</span><span>措辞分析</span><span>3 个版本</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3 最新更新 -->
+      <section class="section" id="updates" aria-labelledby="h-updates">
+        <div class="sec-head"><span class="bar"></span><h2 id="h-updates">最新更新：近两周的条目修订记录</h2><span class="sec-note">按时间倒序 · 共 9 条</span></div>
+        <div class="upd-list">
+          <div class="upd-item"><time datetime="2026-11-07">11-07 今天</time><div class="u-main"><b>工具镜像同步对照表</b><span>补录第二个镜像站的 SHA-256，修正昨日误标的构建号</span></div><span class="u-ver">v3.6.2</span></div>
+          <div class="upd-item"><time datetime="2026-11-06">11-06 昨天</time><div class="u-main"><b>文档修订对照</b><span>新增 <code>--strict</code> 参数默认值变化的原文引用</span></div><span class="u-ver">rev.118</span></div>
+          <div class="upd-item"><time datetime="2026-11-05">11-05</time><div class="u-main"><b>离线安装包校验清单</b><span>签名公钥指纹更新，与作者博客声明一致</span></div><span class="u-ver">v3.6.1</span></div>
+          <div class="upd-item"><time datetime="2026-11-04">11-04</time><div class="u-main"><b>Issue #418 复现步骤</b><span>追加 Windows 11 24H2 的测试结果，未复现</span></div><span class="u-ver">thread</span></div>
+          <div class="upd-item"><time datetime="2026-11-02">11-02</time><div class="u-main"><b>归档索引</b><span>标记 2021 年两个链接为 404，补充 Wayback 快照地址</span></div><span class="u-ver">archive</span></div>
+          <div class="upd-item"><time datetime="2026-10-31">10-31</time><div class="u-main"><b>兼容性措辞比对</b><span>加入第三处「行为差异」的证据截图说明</span></div><span class="u-ver">note</span></div>
+          <div class="upd-item"><time datetime="2026-10-29">10-29</time><div class="u-main"><b>镜像站限速记录</b><span>三家镜像的实测下载速率，标注测试时段</span></div><span class="u-ver">bench</span></div>
+          <div class="upd-item"><time datetime="2026-10-26">10-26</time><div class="u-main"><b>哈希碰撞说明</b><span>MD5 与 SHA-1 的适用边界改写，删除旧结论</span></div><span class="u-ver">rev.112</span></div>
+          <div class="upd-item"><time datetime="2026-10-22">10-22</time><div class="u-main"><b>依赖锁定清单</b><span>新增 14 个间接依赖的版本区间</span></div><span class="u-ver">deps</span></div>
+        </div>
+      </section>
+
+      <!-- 4 分类入口 -->
+      <section class="section" id="categories" aria-labelledby="h-categories">
+        <div class="sec-head"><span class="bar"></span><h2 id="h-categories">分类入口：按资源类型与检索习惯划分</h2><span class="sec-note">8 个频道</span></div>
+        <div class="cat-grid">
+          <a class="cat-item" href="/#picks"><strong>工具镜像下载页</strong><span>镜像站列表与同步状态</span><em>286 条</em></a>
+          <a class="cat-item" href="/#picks"><strong>文档修订对照</strong><span>版本间差异与原文引用</span><em>193 条</em></a>
+          <a class="cat-item" href="/#news"><strong>社区讨论帖</strong><span>Issue、PR 与复现记录</span><em>241 条</em></a>
+          <a class="cat-item" href="/#guide"><strong>离线包校验</strong><span>哈希、签名与公钥指纹</span><em>316 条</em></a>
+          <a class="cat-item" href="/#updates"><strong>版本发布说明</strong><span>changelog 与措辞分析</span><em>154 条</em></a>
+          <a class="cat-item" href="/#ranks"><strong>收藏热度榜</strong><span>按收藏与回访排序</span><em>32 期</em></a>
+          <a class="cat-item" href="/#deep"><strong>依赖锁定清单</strong><span>直接与间接依赖版本</span><em>88 条</em></a>
+          <a class="cat-item" href="/#news"><strong>归档页与快照</strong><span>失效链接的 Wayback 记录</span><em>74 条</em></a>
+        </div>
+      </section>
+
+      <!-- 5 深度解析 -->
+      <section class="section deep" id="deep" aria-labelledby="h-deep">
+        <div class="sec-head"><span class="bar"></span><h2 id="h-deep">深度解析：镜像站的「最新版」未必是可信版本</h2><span class="sec-note">判断可被反驳 · 附核对结构</span></div>
+        <div class="deep-article">
+          <p class="lead-p">先给结论：在国内三家常用镜像中，标着「最新」的目录有较高概率是上游的滞后副本，版本号一致不等于内容一致。可反驳点在于——如果镜像在同步时同时拉取了发布方的签名文件，那么内容不一致的概率会显著下降。主张的是「结论有条件成立」，条件就是签名是否随包下发。</p>
+
+          <h3>案例时间线：一次构建号相同、哈希不同的同步</h3>
+          <p>10-24 至 11-05 之间，同一镜像站的 <code>stable/</code> 目录出现过两次构建号均为 <code>3.6.1</code> 的压缩包。第一次 10-24 的包 SHA-256 前四位是 <code>7c1a</code>，第二次 11-05 的包是 <code>9f2c</code>。文件名、大小、目录结构完全一致，差异藏在压缩包内 <code>build.info</code> 的第三行：前者写着 <code>branch: release/3.6</code>，后者是 <code>branch: hotfix/3.6.1</code>。维护者在 11-06 的 Issue 回复里承认，第一次是误推了未打 tag 的构建。</p>
+
+          <h3>数据对比：三个镜像的同步延迟与校验覆盖</h3>
+          <div class="check-panel">
+            <div class="check-cell"><b>镜像 A</b><span>延迟 4—9 小时，随包下发 SHA-256，未附签名</span></div>
+            <div class="check-cell"><b>镜像 B</b><span>延迟 1—2 天，只提供 MD5，且与源站不同</span></div>
+            <div class="check-cell"><b>镜像 C</b><span>延迟 30 分钟，同步 detached 签名与公钥文件</span></div>
+          </div>
+          <p>把三组数字放在一起看，镜像 C 的延迟最短、凭据最全；镜像 B 的问题不是慢，而是 MD5 与源站不一致却没说明原因。11-02 的抽样里，镜像 B 的 12 个包有 3 个哈希对不上，比例 25%。样本小，不能外推，但足以说明「只凭镜像标注判断」风险不低。</p>
+
+          <h3>说法差异：发布说明与维护者回复的措辞</h3>
+          <p>11-01 的发布说明写「本次更新向后兼容 3.5 及以上版本」。同日在 Issue #421 的回复里，维护者补充「3.5.0 到 3.5.3 需手动迁移配置」。两句话不矛盾，但读者只看发布说明会得出过于乐观的结论。判断材料时，发布说明是转述，维护者回复更接近事实；两者都要看，且以带具体版本号的那条为准。</p>
+          <div class="quote-card">「向后兼容的表述在过去 3 个版本中出现 2 次，每次都伴随至少一处配置项迁移。」<cite>—— 摘自 11-01 兼容性措辞比对条目的编辑备注</cite></div>
+
+          <h3>规则前后变化：校验值从可选变成必填</h3>
+          <p>10-20 起，索引对新增条目要求填写至少一个哈希值，旧条目仍在补录。规则变化的直接后果是：10-20 之前的条目里，没有校验记录的比例约 41%（以 1,284 条全量估算）；10-20 之后新增的 62 条全部带校验。这条规则不解决来源可信问题，只解决「文件是否一致」问题。把两者混为一谈，是这类索引最常见的误读。</p>
+
+          <h3>可核对结构：一条判断拆成四步</h3>
+          <ol>
+            <li>比文件名与大小——只能排除明显替换，不能证明一致。</li>
+            <li>比哈希——证明两份文件字节一致，前提是哈希来源本身可追溯。</li>
+            <li>验签名与公钥指纹——证明发布者身份，需对照作者在其他渠道公布的指纹。</li>
+            <li>读构建信息与 tag——证明这份包出自哪个分支，是解释「同版本号不同内容」的关键。</li>
+          </ol>
+          <p>四步里任何一步缺失，结论都应降级为「暂未发现问题」而非「确认可用」。这不是对镜像站的不信任，而是索引能提供的证据边界就这么宽。</p>
+        </div>
+      </section>
+
+      <!-- 6 体验指南 -->
+      <section class="section" id="guide" aria-labelledby="h-guide">
+        <div class="sec-head"><span class="bar"></span><h2 id="h-guide">体验指南：从检索到校验的五步流程</h2><span class="sec-note">约 6 分钟读完</span></div>
+        <ol class="steps">
+          <li><b>先定条目再选镜像</b><span>在分类入口里按资源类型找到条目页，条目页顶部列出所有已知镜像与最后同步时间，别直接从搜索引擎进镜像目录。</span></li>
+          <li><b>核对版本号与构建号</b><span>版本号形如 3.6.2，构建号可能带日期或 commit 短哈希。两者都记录在条目页的「版本」区块，缺一不可。</span></li>
+          <li><b>下载后先算哈希</b><span>Windows 用 <code>certutil -hashfile 文件名 SHA256</code>，macOS 与 Linux 用 <code>shasum -a 256</code>。结果与条目页记录逐位比对，不要只看前几位。</span></li>
+          <li><b>有签名就验签名</b><span>detached 签名需公钥文件。指纹与作者博客或发布页声明不一致时，停下，去 Issue 区搜公钥指纹关键词。</span></li>
+          <li><b>记录你的核对结果</b><span>在条目页评论区留下日期、镜像、哈希前八位与结论。后来者能据此判断某镜像在某时段是否可靠。</span></li>
+        </ol>
+        <div class="compare" style="margin-top:16px">
+          <div class="c-left">
+            <h4>推荐做法</h4>
+            <ul>
+              <li>优先选同步签名文件的镜像</li>
+              <li>保留原始压缩包，改名后再解压</li>
+              <li>对照两个以上来源的发布说明</li>
+              <li>把校验结果写进评论，附日期</li>
+            </ul>
+          </div>
+          <div class="c-right">
+            <h4>常见误区</h4>
+            <ul>
+              <li>只看文件名和大小就判断一致</li>
+              <li>把 MD5 当作防篡改的唯一凭据</li>
+              <li>用「最新」标签代替版本号核对</li>
+              <li>签名验证失败后仍继续安装</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 FAQ -->
+      <section class="section" id="faq" aria-labelledby="h-faq">
+        <div class="sec-head"><span class="bar"></span><h2 id="h-faq">常见问题：版本、校验与镜像的八个疑问</h2><span class="sec-note">按提问频率排序</span></div>
+
+        <details class="faq-item" open>
+          <summary>同一版本号的两个压缩包，哈希不同是正常的吗？</summary>
+          <div class="ans">可能是正常的。构建过程若包含时间戳、分支名或依赖缓存差异，同版本号也会产出不同字节。判断方法是解压后比对 <code>build.info</code> 或类似元数据文件，看分支与提交哈希是否一致；若元数据相同而哈希不同，才需要怀疑文件被替换。</div>
+        </details>
+        <details class="faq-item">
+          <summary>镜像站提供的 MD5 与源站不一致，该信哪个？</summary>
+          <div class="ans">先信源站，但要看源站是否随包下发签名。MD5 容易在传输或打包环节被重新计算，镜像站若自行重新打包，MD5 必然不同。此时应下载镜像包、计算 SHA-256，再与源站发布页记录比对，而不是比较两个 MD5。</div>
+        </details>
+        <details class="faq-item">
+          <summary>离线安装包缺少签名文件还能用吗？</summary>
+          <div class="ans">能用，但证据等级下降。缺少签名时只剩哈希一条线索，而哈希若来自同一镜像，等于自证。建议去作者博客、代码托管平台的 Release 页或邮件列表找独立公布的哈希，找到两个独立来源再决定。</div>
+        </details>
+        <details class="faq-item">
+          <summary>依赖锁定清单里的版本区间为什么要写成两段？</summary>
+          <div class="ans">因为直接依赖和间接依赖的约束来源不同。直接依赖由项目自己声明，区间较窄；间接依赖由上层包传递，区间可能被多个包同时约束。两段写法分别对应「声明区间」与「实际解析结果」，后者才是安装时真正生效的版本。</div>
+        </details>
+        <details class="faq-item">
+          <summary>归档页里标注 404 的链接还有参考价值吗？</summary>
+          <div class="ans">有，但价值在版本考古而非下载。404 链接常对应已删除的旧构建，配合 Wayback 快照可以看到当时的发布说明与文件大小。若快照里也没有哈希，这条记录只能作为「曾经存在过」的证据，不能用于校验。</div>
+        </details>
+        <details class="faq-item">
+          <summary>签名验证通过就代表软件安全吗？</summary>
+          <div class="ans">不代表。签名只证明「这个包由持有该私钥的人发布」，不证明代码没有漏洞或行为正当。私钥泄露、作者账号被盗都会让签名失效但验证仍通过。签名是必要条件之一，不是充分条件。</div>
+        </details>
+        <details class="faq-item">
+          <summary>为什么有的条目显示「作者已停更」却仍在索引里？</summary>
+          <div class="ans">索引保留停更条目是为了记录版本历史与已知问题。停更条目的页面顶部有醒目提示，且不再参与收藏热度榜排序。若条目涉及仍在使用的依赖，保留记录比直接删除更有用。</div>
+        </details>
+        <details class="faq-item">
+          <summary>社区讨论帖和发布说明冲突时，以哪个为准？</summary>
+          <div class="ans">以带复现步骤和具体版本号的一方为准，通常落在讨论帖。发布说明面向所有用户，措辞偏概括；讨论帖里的维护者回复往往附带条件与例外。两者都保留，并在条目页标注冲突点与核对日期。</div>
+        </details>
+      </section>
+
+      <!-- 8 用户评论 -->
+      <section class="section" id="comments" aria-labelledby="h-comments">
+        <div class="sec-head"><span class="bar"></span><h2 id="h-comments">用户评论：来自核对过条目的读者</h2><span class="sec-note">近 7 天 · 6 条精选</span></div>
+        <div class="cmt-list">
+          <div class="cmt">
+            <div class="cmt-avatar">林</div>
+            <div>
+              <div class="cmt-head"><b>林间有风</b><span class="stars">★★★★★</span><span>11-06 22:41</span></div>
+              <p>工具镜像同步对照表那条帮了大忙。10-24 的包我在两台机器上装过，一直以为是自己环境问题，看到 <code>build.info</code> 分支那行的对比才明白是包本身推错了。建议把 <code>hotfix/3.6.1</code> 这次的哈希也补进表里。</p>
+            </div>
+          </div>
+          <div class="cmt">
+            <div class="cmt-avatar">周</div>
+            <div>
+              <div class="cmt-head"><b>周末装系统</b><span class="stars">★★★☆☆</span><span>11-05 09:12</span></div>
+              <p>离线包校验清单更新后，签名公钥指纹那栏还是只有前 16 位。验的时候要逐位比对，只有前 16 位不够用。另外 42 MB 的包在镜像 A 下了 11 分钟，限速记录里写的 3 分 20 秒是哪个时段测的？</p>
+            </div>
+          </div>
+          <div class="cmt">
+            <div class="cmt-avatar">陈</div>
+            <div>
+              <div class="cmt-head"><b>陈工不加糖</b><span class="stars">★★★★☆</span><span>11-04 16:33</span></div>
+              <p>Issue #418 的复现步骤写得比我见过的多数 bug 报告清楚。Windows 11 24H2 这边确实没复现，估计和长路径策略有关。不过条目里说「与路径长度限制有关」还是推测，维护者没确认，建议标成待验证。</p>
+            </div>
+          </div>
+          <div class="cmt">
+            <div class="cmt-avatar">许</div>
+            <div>
+              <div class="cmt-head"><b>许半页</b><span class="stars">★★☆☆☆</span><span>11-03 20:05</span></div>
+              <p>不太满意兼容性措辞比对那一节。三个版本的截图只放了两个，第三个「行为差异」的证据说在备注里，点进去是空的。结论我信一半，材料得补齐。</p>
+            </div>
+          </div>
+          <div class="cmt">
+            <div class="cmt-avatar">何</div>
+            <div>
+              <div class="cmt-head"><b>何处的何</b><span class="stars">★★★★★</span><span>11-02 11:47</span></div>
+              <p>归档页把 2021 年那两个 404 链接补了 Wayback 快照，正好在找 2021 年 8 月的发布说明，快照里文件大小和记录对得上。这类补录比新增条目更有价值。</p>
+            </div>
+          </div>
+          <div class="cmt">
+            <div class="cmt-avatar">赵</div>
+            <div>
+              <div class="cmt-head"><b>赵四层</b><span class="stars">★★★★☆</span><span>10-31 08:26</span></div>
+              <p>依赖锁定清单新增的 14 个间接依赖里，有 3 个区间是冲突的，条目里没提怎么处理。按深度解析里说的「实际解析结果」去看，安装时会选较窄的那段，但没说选哪个包的上限。希望补一句。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9 相关资讯 -->
+      <section class="section" id="news" aria-labelledby="h-news">
+        <div class="sec-head"><span class="bar"></span><h2 id="h-news">相关资讯：版本与镜像动态</h2><span class="sec-note">10-12 至 11-07</span></div>
+        <div class="news-list">
+          <div class="news-item"><time datetime="2026-11-07">11-07</time><strong>镜像 C 更换同步节点</strong><span>节点从香港迁至新加坡，同步延迟实测从 30 分钟降到 18 分钟。</span></div>
+          <div class="news-item"><time datetime="2026-11-05">11-05</time><strong>发布方补发 v3.6.2 的 detached 签名</strong><span>此前 v3.6.2 只提供哈希，11-05 起 Release 页附 <code>.asc</code> 文件。</span></div>
+          <div class="news-item"><time datetime="2026-11-01">11-01</time><strong>社区发起「镜像哈希复核」协作</strong><span>参与者每周抽 20 个包比对三个镜像，结果登记在公开表格。</span></div>
+          <div class="news-item"><time datetime="2026-10-28">10-28</time><strong>文档站点改版</strong><span>旧版 URL 重定向至新版，部分锚点失效，修订对照条目已标出。</span></div>
+          <div class="news-item"><time datetime="2026-10-24">10-24</time><strong>误推未打 tag 构建的说明</strong><span>维护者在 Issue 中承认 stable 目录混入过一次 hotfix 构建。</span></div>
+          <div class="news-item"><time datetime="2026-10-12">10-12</time><strong>索引规则调整：新增条目必填校验值</strong><span>10-20 起执行，此前条目分批补录，当前覆盖率约 59%。</span></div>
+        </div>
+      </section>
+
+      <!-- 10 榜单 + 11 时间线 -->
+      <section class="section" id="ranks" aria-labelledby="h-ranks">
+        <div class="sec-head"><span class="bar"></span><h2 id="h-ranks">补充板块：收藏榜与本周时间线</h2><span class="sec-note">第 32 期 · 11-07 生成</span></div>
+        <div class="overview-grid">
+          <div>
+            <h3 style="font-size:15px;margin-bottom:10px">收藏热度榜（按 14 天收藏与回访加权）</h3>
+            <ol class="rank-list">
+              <li><span class="rk top">1</span><span>工具镜像同步对照表 v3.6.2</span><span class="score">9,412</span></li>
+              <li><span class="rk">2</span><span>离线安装包校验清单</span><span class="score">8,027</span></li>
+              <li><span class="rk">3</span><span>文档修订对照 rev.118</span><span class="score">6,639</span></li>
+              <li><span class="rk">4</span><span>Issue #418 复现步骤</span><span class="score">5,183</span></li>
+              <li><span class="rk">5</span><span>旧版下载页归档索引</span><span class="score">4,760</span></li>
+              <li><span class="rk">6</span><span>依赖锁定清单 deps</span><span class="score">3,914</span></li>
+            </ol>
+          </div>
+          <div>
+            <h3 style="font-size:15px;margin-bottom:10px">本周时间线</h3>
+            <ol class="timeline">
+              <li><time datetime="2026-11-07">11-07</time><b>对照表补录第二个镜像哈希</b><br><span>修正 11-06 误标构建号</span></li>
+              <li><time datetime="2026-11-06">11-06</time><b>维护者回应构建误推</b><br><span>Issue 内承认未打 tag</span></li>
+              <li><time datetime="2026-11-05">11-05</time><b>v3.6.2 签名文件补发</b><br><span>公钥指纹与博客一致</span></li>
+              <li><time datetime="2026-11-03">11-03</time><b>文档两版差异复核完成</b><br><span>17 处改动，含默认值翻转</span></li>
+              <li><time datetime="2026-11-01">11-01</time><b>兼容性措辞比对发布</b><br><span>3 个版本，2 处行为差异</span></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12 相关推荐 -->
+      <section class="section" id="related" aria-labelledby="h-related">
+        <div class="sec-head"><span class="bar"></span><h2 id="h-related">相关推荐：按你正在看的条目延伸阅读</h2><span class="sec-note">标签索引</span></div>
+        <div class="tag-set">
+          <a class="tag gold" href="/#deep">镜像哈希比对方法</a>
+          <a class="tag" href="/#guide">SHA-256 命令速查</a>
+          <a class="tag teal" href="/#updates">v3.6.1 与 v3.6.2 差异</a>
+          <a class="tag" href="/#faq">detached 签名怎么验</a>
+          <a class="tag" href="/#faq">MD5 适用边界</a>
+          <a class="tag red" href="/#news">未打 tag 构建事件</a>
+          <a class="tag" href="/#picks">归档页 Wayback 补录</a>
+          <a class="tag teal" href="/#deep">依赖区间两段写法</a>
+          <a class="tag" href="/#ranks">收藏榜第 31 期</a>
+          <a class="tag" href="/#guide">Windows 长路径问题</a>
+          <a class="tag gold" href="/#updates">本周修订记录全表</a>
+          <a class="tag" href="/#faq">公钥指纹对照渠道</a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 侧栏 -->
+    <aside class="side-col" aria-label="侧栏导航与说明">
+      <div class="side-card">
+        <h2>栏目导航</h2>
+        <nav class="side-nav" id="sideNav" aria-label="页内栏目">
+          <a href="/#overview">领域概览</a>
+          <a href="/#picks">精选内容推荐</a>
+          <a href="/#updates">最新更新</a>
+          <a href="/#categories">分类入口</a>
+          <a href="/#deep">深度解析</a>
+          <a href="/#guide">体验指南</a>
+          <a href="/#faq">常见问题</a>
+          <a href="/#comments">用户评论</a>
+          <a href="/#news">相关资讯</a>
+          <a href="/#ranks">收藏榜与时间线</a>
+          <a href="/#related">相关推荐</a>
+        </nav>
+        <p class="side-note">滚动时高亮当前栏目；移动端点击导航后自动收起。</p>
+      </div>
+
+      <div class="side-card">
+        <h2>条目维护者说</h2>
+        <div class="creator">
+          <div class="cmt-avatar" aria-hidden="true">录</div>
+          <div>
+            <p style="margin:0 0 6px">「校验值只能证明文件一致，来源可信要看签名和公钥公布渠道。这两件事在条目页分开写，就是为了不让人混着看。」</p>
+            <p class="small muted" style="margin:0">—— 索引维护组 · 11-05 条目说明</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <h2>数据说明</h2>
+        <p class="small" style="color:var(--ink-2);margin-bottom:8px">条目数、收藏分数、延迟数据均为示例，用于演示索引结构，不对应真实站点统计。</p>
+        <p class="small muted" style="margin:0">页面更新时间：2026-11-08 · 对应正文 11-07 公告与最新更新板块的 9 条修订。</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- 页尾 -->
+<footer class="site-foot" id="foot">
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand">
+        <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#2d3f4f"/>
+          <path d="M16 46V18h8v11h16V18h8v28h-8V36H24v10z" fill="#e8b04b"/>
+        </svg>
+        <span class="brand-name">jxx.cc.8888</span>
+      </div>
+      <p class="foot-pos">索引数字资源的版本与凭据：记下谁在维护、哪份包对应哪个构建、校验值来自哪里。判断留给读者，证据尽量留全。</p>
+    </div>
+    <div>
+      <h3>栏目</h3>
+      <div class="foot-links">
+        <a href="/#overview">领域概览</a>
+        <a href="/#picks">精选内容推荐</a>
+        <a href="/#updates">最新更新</a>
+        <a href="/#deep">深度解析</a>
+      </div>
+    </div>
+    <div>
+      <h3>检索</h3>
+      <div class="foot-links">
+        <a href="/#categories">分类入口</a>
+        <a href="/#guide">体验指南</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#ranks">收藏榜</a>
+      </div>
+    </div>
+    <div>
+      <h3>互动</h3>
+      <div class="foot-links">
+        <a href="/#comments">用户评论</a>
+        <a href="/#news">相关资讯</a>
+        <a href="/#related">相关推荐</a>
+        <a href="/#guide">校验流程</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>
+      <span>示例数据说明：条目数、版本号、哈希、收藏分数与延迟均为演示用示例，不指向真实站点。</span>
+    </div>
+    <div>
+      <span>© 2026 jxx.cc.8888 索引记录</span>
+      <span>更新时间 2026-11-08</span>
+    </div>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" type="button" aria-label="回到顶部">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "jxx.cc.8888",
+  "description": "数字资源索引与版本追踪站，记录工具镜像、文档修订、社区讨论与下载校验信息。",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "同一版本号的两个压缩包，哈希不同是正常的吗？",
+      "acceptedAnswer": {"@type": "Answer", "text": "可能正常。构建过程若包含时间戳、分支名或依赖缓存差异，同版本号也会产出不同字节。可比对 build.info 等元数据中的分支与提交哈希；元数据相同而哈希不同才需怀疑文件被替换。"}
+    },
+    {
+      "@type": "Question",
+      "name": "镜像站提供的 MD5 与源站不一致，该信哪个？",
+      "acceptedAnswer": {"@type": "Answer", "text": "先信源站，但要看源站是否随包下发签名。MD5 容易在重新打包时变化，应下载镜像包计算 SHA-256，再与源站发布页记录比对。"}
+    },
+    {
+      "@type": "Question",
+      "name": "离线安装包缺少签名文件还能用吗？",
+      "acceptedAnswer": {"@type": "Answer", "text": "能用，但证据等级下降。建议去作者博客、代码托管平台 Release 页或邮件列表找独立公布的哈希，找到两个独立来源再决定。"}
+    },
+    {
+      "@type": "Question",
+      "name": "依赖锁定清单里的版本区间为什么要写成两段？",
+      "acceptedAnswer": {"@type": "Answer", "text": "直接依赖区间由项目声明，间接依赖由上层包传递约束。两段分别对应声明区间与实际解析结果，后者才是安装时生效的版本。"}
+    },
+    {
+      "@type": "Question",
+      "name": "签名验证通过就代表软件安全吗？",
+      "acceptedAnswer": {"@type": "Answer", "text": "不代表。签名只证明包由持有该私钥的人发布，不证明代码无漏洞或行为正当。私钥泄露或账号被盗时签名仍可通过验证，签名是必要条件之一。"}
+    }
+  ]
+}
+</script>
+
+<script>
+(function(){
+  var menuBtn = document.getElementById('menuBtn');
+  var nav = document.getElementById('mainNav');
+  if(menuBtn && nav){
+    menuBtn.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A' && window.innerWidth <= 760){
+        nav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  /* 滚动高亮 */
+  var links = Array.prototype.slice.call(document.querySelectorAll('#sideNav a'));
+  var sections = links.map(function(a){
+    var id = a.getAttribute('href').replace('/#','');
+    return document.getElementById(id);
+  }).filter(Boolean);
+  function setActive(){
+    var pos = window.scrollY + 150;
+    var current = null;
+    sections.forEach(function(sec){
+      if(sec.offsetTop <= pos) current = sec.id;
+    });
+    links.forEach(function(a){
+      var match = a.getAttribute('href') === '/#' + current;
+      a.classList.toggle('active', match);
+    });
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){
+      window.requestAnimationFrame(function(){ setActive(); ticking = false; });
+      ticking = true;
+    }
+  }, {passive:true});
+  setActive();
+
+  /* 回到顶部 */
+  var backTop = document.getElementById('backTop');
+  function toggleTop(){
+    if(window.scrollY > 480){ backTop.classList.add('show'); }
+    else{ backTop.classList.remove('show'); }
+  }
+  window.addEventListener('scroll', toggleTop, {passive:true});
+  toggleTop();
+  backTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* 本地搜索 */
+  var input = document.getElementById('siteSearch');
+  var feedback = document.getElementById('searchFeedback');
+  var index = [
+    {title:'工具镜像同步对照表 v3.6.2', id:'#picks', kw:'镜像 哈希 构建号 同步'},
+    {title:'文档修订对照 rev.118', id:'#picks', kw:'修订 参数 strict 默认值'},
+    {title:'离线安装包校验清单', id:'#picks', kw:'离线 签名 公钥 校验'},
+    {title:'Issue #418 复现步骤', id:'#picks', kw:'复现 报错 路径 Windows'},
+    {title:'旧版下载页归档索引', id:'#picks', kw:'归档 404 快照 Wayback'},
+    {title:'兼容性措辞比对', id:'#picks', kw:'兼容 发布说明 版本'},
+    {title:'最新更新记录', id:'#updates', kw:'更新 修订 版本 日期'},
+    {title:'分类入口', id:'#categories', kw:'分类 频道 条目'},
+    {title:'深度解析：镜像站可信版本判断', id:'#deep', kw:'镜像 可信 签名 判断 深度'},
+    {title:'体验指南：五步校验流程', id:'#guide', kw:'校验 流程 步骤 哈希'},
+    {title:'常见问题 FAQ', id:'#faq', kw:'哈希 MD5 签名 依赖 停更'},
+    {title:'用户评论', id:'#comments', kw:'评论 反馈 条目'},
+    {title:'相关资讯', id:'#news', kw:'新闻 节点 签名 改版'},
+    {title:'收藏榜与时间线', id:'#ranks', kw:'榜单 收藏 时间线'},
+    {title:'相关推荐标签', id:'#related', kw:'推荐 标签 延伸'}
+  ];
+  function doSearch(){
+    var q = input.value.trim().toLowerCase();
+    if(!q){ feedback.classList.remove('show'); feedback.innerHTML=''; return; }
+    var hit = index.filter(function(item){
+      return (item.title + ' ' + item.kw).toLowerCase().indexOf(q) !== -1;
+    }).slice(0,5);
+    if(hit.length === 0){
+      feedback.innerHTML = '<strong>没有匹配结果</strong>。试试「镜像」「哈希」「签名」「FAQ」等词。';
+    }else{
+      feedback.innerHTML = hit.map(function(h){
+        return '<div style="margin-bottom:6px"><a href="/' + h.id + '">' + h.title + '</a></div>';
+      }).join('');
+    }
+    feedback.classList.add('show');
+  }
+  input.addEventListener('input', doSearch);
+  input.addEventListener('focus', function(){ if(input.value.trim()) doSearch(); });
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.search-wrap')){ feedback.classList.remove('show'); }
+  });
+  feedback.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ feedback.classList.remove('show'); input.value=''; }
+  });
+
+  /* 随机条目 */
+  var quick = document.getElementById('quickJump');
+  var ids = ['#picks','#updates','#deep','#guide','#comments','#ranks','#news','#related'];
+  quick.addEventListener('click', function(){
+    var id = ids[Math.floor(Math.random()*ids.length)];
+    var el = document.querySelector(id);
+    if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+})();
+</script>
+</body>
+          </html>
